@@ -8,8 +8,6 @@ const express = require('express');
 const app = express()
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// const { request, response } = require('express');
-const mockAPIResponse = require('./mockAPI.js');
 const FormData = require('form-data');
 const fetch = require("node-fetch");
 const { response } = require('express');
@@ -26,14 +24,8 @@ app.listen(port, function () {
     console.log(`App is running on port ${port}!`)
 });
 
-console.log(__dirname)
-
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html', { root: __dirname })
-});
-
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
 });
 
 app.post('/analyse', getAnalysis);
