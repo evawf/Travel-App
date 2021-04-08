@@ -1,7 +1,9 @@
 if (process.env.Node_ENV !== "production") {
     require('dotenv').config();
 }
-const apiKey = process.env.API_KEY;
+
+const Geonames_username = process.env.GEONAMES_API_KEY;
+const Weather
 
 const path = require('path');
 const express = require('express');
@@ -24,36 +26,61 @@ app.listen(port, function () {
     console.log(`App is running on port ${port}!`)
 });
 
-app.get('/', function (req, res) {
-    res.sendFile('dist/index.html', { root: __dirname })
-});
+app.get('/', 
+    (req, res) => res.sendFile('dist/index.html', { root: __dirname })
+)
 
+let data = []
 app.post('/analyse', getAnalysis);
 async function getAnalysis(req, res){
-    const formInput = req.body.formInput;
-    let results = await getAnalysisData(formInput);
-    let addData = {
-        model: results.model,
-        score_tag: results.score_tag,
-        agreement: results.agreement,
-        subjectivity: results.subjectivity,
-        confidence: results.confidence,
-        irony: results.irony
-    }
-    res.send(addData);
+    // const formInput = req.body.formInput;
+    // let weatherData = await getWeatherData();
+    const location = req.body.location;
+    let GeoData = await getGeoData(location);
+    // let PixaData = await getPixaData();
+    // let addData = {
+    //     model: results.model,
+    //     score_tag: results.score_tag,
+    //     agreement: results.agreement,
+    //     subjectivity: results.subjectivity,
+    //     confidence: results.confidence,
+    //     irony: results.irony
+    // }
+    console.log(GeoData);
+    res.send(GeoData);
 }
 
 //Fetch API data
-const getAnalysisData = async (formInput) => {
-    const baseURL = "http://api.meaningcloud.com";
-    const subURL = "/sentiment-2.1?key=" + apiKey + "&lang=auto&url=" + formInput;
+// const getData = async (url) => {
+//     const res = await fetch(url) 
+//     try{
+//         const Data = await res.json();
+//         return Data;
+//         console.log(Data);
+//     }
+//     catch(error){
+//         console.log('error', error);
+//     }
+// }
+
+//Fetch Geonames API data
+const getGeoData =  async (location) => {
+    const baseURL = "http://api.geonames.org/searchJSON?q=";
+    const subURL = location + "&maxRows=1&username=" + Geonames_username;
     const url = baseURL + subURL;
-    const res = await fetch(url) 
+    const res = await fetch(url)
     try{
         const Data = await res.json();
+        console.log(Data);
         return Data;
     }
     catch(error){
         console.log('error', error);
     }
 }
+
+// function getPixaData(key, input) {
+//     const baseURL = "";
+//     const subURL = "";
+// }
+
