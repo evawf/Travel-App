@@ -4,6 +4,7 @@ if (process.env.Node_ENV !== "production") {
 
 const Geonames_username = process.env.GEONAMES_API_KEY;
 const Weatherbit_apiKey = process.env.WEATHERBIT_API_KEY;
+const Pixabay_apiKey = process.env.PIXABAY_API_KEY;
 
 const path = require('path');
 const express = require('express');
@@ -33,15 +34,17 @@ app.get('/',
 let data = []
 app.post('/analyse', getAnalysis);
 async function getAnalysis(req, res){
-    // const formInput = req.body.formInput;
+
     const location = req.body.location;
+    const days = req.body.days;
     let GeoData = await getGeoData(location);
     let lon = GeoData.geonames[0].lng;
     let lat = GeoData.geonames[0].lat;
-    let WeatherData = await getWeatherData(lat, lon); 
+    let WeatherData = await getWeatherData(lat, lon, days); 
     console.log(WeatherData);
+    let PixabayData = await getPixaData(location);
+    console.log(PixabayData);
 
-    
     // let PixaData = await getPixaData();
     // let addData = {
     //     model: results.model,
@@ -56,9 +59,9 @@ async function getAnalysis(req, res){
 }
 
 //Fetch Weatherbit API data
-const getWeatherData = async (lat, lon) => {
+const getWeatherData = async (lat, lon, days) => {
     const baseURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
-    const subURL = "&lat=" + lat + "&lon=" + lon + "&key=" + Weatherbit_apiKey;
+    const subURL = "&lat=" + lat + "&lon=" + lon + "&key=" + Weatherbit_apiKey + "&days=" + days;
     const url = baseURL + subURL;
     const res = await fetch(url) 
     try{
@@ -85,8 +88,17 @@ const getGeoData =  async (location) => {
     }
 }
 
-// function getPixaData(key, input) {
-//     const baseURL = "";
-//     const subURL = "";
-// }
+const getPixaData = async (location) => {
+    const baseURL = "https://pixabay.com/api/?key=";
+    const subURL = Pixabay_apiKey + "&q=" + location + "&image_type=photo";
+    const url = baseURL + subURL;
+    const res = await fetch(url)
+    try{
+        const Data = await res.json();
+        return Data;
+    }
+    catch(error){
+        console.log('error', error);
+    }
+}
 
