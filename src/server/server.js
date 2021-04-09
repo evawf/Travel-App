@@ -3,7 +3,7 @@ if (process.env.Node_ENV !== "production") {
 }
 
 const Geonames_username = process.env.GEONAMES_API_KEY;
-const Weather
+const Weatherbit_apiKey = process.env.WEATHERBIT_API_KEY;
 
 const path = require('path');
 const express = require('express');
@@ -34,9 +34,14 @@ let data = []
 app.post('/analyse', getAnalysis);
 async function getAnalysis(req, res){
     // const formInput = req.body.formInput;
-    // let weatherData = await getWeatherData();
     const location = req.body.location;
     let GeoData = await getGeoData(location);
+    let lon = GeoData.geonames[0].lng;
+    let lat = GeoData.geonames[0].lat;
+    let WeatherData = await getWeatherData(lat, lon); 
+    console.log(WeatherData);
+
+    
     // let PixaData = await getPixaData();
     // let addData = {
     //     model: results.model,
@@ -46,22 +51,24 @@ async function getAnalysis(req, res){
     //     confidence: results.confidence,
     //     irony: results.irony
     // }
-    console.log(GeoData);
+    
     res.send(GeoData);
 }
 
-//Fetch API data
-// const getData = async (url) => {
-//     const res = await fetch(url) 
-//     try{
-//         const Data = await res.json();
-//         return Data;
-//         console.log(Data);
-//     }
-//     catch(error){
-//         console.log('error', error);
-//     }
-// }
+//Fetch Weatherbit API data
+const getWeatherData = async (lat, lon) => {
+    const baseURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
+    const subURL = "&lat=" + lat + "&lon=" + lon + "&key=" + Weatherbit_apiKey;
+    const url = baseURL + subURL;
+    const res = await fetch(url) 
+    try{
+        const Data = await res.json();
+        return Data;
+    }
+    catch(error){
+        console.log('error', error);
+    }
+}
 
 //Fetch Geonames API data
 const getGeoData =  async (location) => {
@@ -71,7 +78,6 @@ const getGeoData =  async (location) => {
     const res = await fetch(url)
     try{
         const Data = await res.json();
-        console.log(Data);
         return Data;
     }
     catch(error){
