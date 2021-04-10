@@ -1,5 +1,5 @@
 import { handleSubmit } from './js/formHandler';
-import { checkForUrl } from './js/urlChecker';
+import { checkForInput } from './js/inputChecker';
 
 import './styles/resets.scss';
 import './styles/base.scss';
@@ -8,7 +8,7 @@ import './styles/form.scss';
 import './styles/header.scss';
 
 export {
-    checkForUrl,
+    checkForInput,
     handleSubmit
 }
 

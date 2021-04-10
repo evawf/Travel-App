@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.static('dist'));
 app.use(bodyParser.json());
 
-// designates what port the app will listen to for incoming requests
+//Port the app will listen to for incoming requests
 const port = process.env.PORT || 8081;
 app.listen(port, function () {
     console.log(`App is running on port ${port}!`)
@@ -31,31 +31,44 @@ app.get('/',
     (req, res) => res.sendFile('dist/index.html', { root: __dirname })
 )
 
-let data = []
-app.post('/analyse', getAnalysis);
-async function getAnalysis(req, res){
+let data = [];
+app.post('/destination', getDestinationInfo);
+async function getDestinationInfo(req, res){
 
-    const location = req.body.location;
+    const destination = req.body.destination;
     const days = req.body.days;
-    let GeoData = await getGeoData(location);
+
+    //Call GeoData
+    let GeoData = await getGeoData(destination);
     let lon = GeoData.geonames[0].lng;
     let lat = GeoData.geonames[0].lat;
-    let WeatherData = await getWeatherData(lat, lon, days); 
-    console.log(WeatherData);
-    let PixabayData = await getPixaData(location);
-    console.log(PixabayData);
 
-    // let PixaData = await getPixaData();
-    // let addData = {
-    //     model: results.model,
-    //     score_tag: results.score_tag,
-    //     agreement: results.agreement,
-    //     subjectivity: results.subjectivity,
-    //     confidence: results.confidence,
-    //     irony: results.irony
-    // }
-    
-    res.send(GeoData);
+    //Call WeatherData
+    let WeatherData = await getWeatherData(lat, lon, days); 
+    let forecast = [];
+    for(let i = 0; i < 16; i++){
+        let temp = WeatherData.data[i].temp;
+        let weather = WeatherData.data[i].weather;
+        let weatherInfo = {temp, weather}
+        forecast.push(weatherInfo);
+    };
+
+    //Call Pixabay for Photos
+    let PixabayData = await getPixaData(destination);
+    let photos = [];
+    for(let i = 0; i < 20; i++){
+        let photoUrl = PixabayData.hits[i].webformatURL;
+        photos.push(photoUrl);
+    };
+
+    //Save data to project endpoint
+    let addData = {
+        destination: destination,
+        forecast: forecast,
+        photos: photos
+    };
+    data.push(addData);
+    res.send(data);
 }
 
 //Fetch Weatherbit API data
@@ -63,7 +76,7 @@ const getWeatherData = async (lat, lon, days) => {
     const baseURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
     const subURL = "&lat=" + lat + "&lon=" + lon + "&key=" + Weatherbit_apiKey + "&days=" + days;
     const url = baseURL + subURL;
-    const res = await fetch(url) 
+    const res = await fetch(url);
     try{
         const Data = await res.json();
         return Data;
@@ -74,11 +87,11 @@ const getWeatherData = async (lat, lon, days) => {
 }
 
 //Fetch Geonames API data
-const getGeoData =  async (location) => {
+const getGeoData =  async (destination) => {
     const baseURL = "http://api.geonames.org/searchJSON?q=";
-    const subURL = location + "&maxRows=1&username=" + Geonames_username;
+    const subURL = destination + "&maxRows=1&username=" + Geonames_username;
     const url = baseURL + subURL;
-    const res = await fetch(url)
+    const res = await fetch(url);
     try{
         const Data = await res.json();
         return Data;
@@ -88,11 +101,12 @@ const getGeoData =  async (location) => {
     }
 }
 
-const getPixaData = async (location) => {
+//Fetch Pixabay API Data
+const getPixaData = async (destination) => {
     const baseURL = "https://pixabay.com/api/?key=";
-    const subURL = Pixabay_apiKey + "&q=" + location + "&image_type=photo";
+    const subURL = Pixabay_apiKey + "&q=" + destination + "&image_type=photo";
     const url = baseURL + subURL;
-    const res = await fetch(url)
+    const res = await fetch(url);
     try{
         const Data = await res.json();
         return Data;
@@ -101,4 +115,3 @@ const getPixaData = async (location) => {
         console.log('error', error);
     }
 }
-

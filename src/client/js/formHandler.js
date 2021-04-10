@@ -17,7 +17,7 @@ const postData = async (url = '', data = {}) => {
 }
 
 function init() {
-    location.reload(1)
+    destination.reload(1)
 }
 
 //PreLoader Handler
@@ -37,9 +37,9 @@ async function handleSubmit(event) {
     event.preventDefault()
     const formInput = document.getElementById('url').value;
     const errorMsg = document.getElementById('errorMsg');
-    if(Client.checkForUrl(formInput)) {
+    if(Client.checkForInput(formInput)) {
         showPreLoader();
-        const data = await postData('http://localhost:8081/analyse', { formInput });
+        const data = await postData('http://localhost:8081/destination', { formInput });
         displayResults(data);
     } else {
         errorMsg.innerHTML = "Please enter a valid URL!";
