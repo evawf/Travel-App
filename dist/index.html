@@ -4,39 +4,52 @@
         <meta charset="utf-8">
         <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-        <title>News article analysis</title>
+        <title>Travel Planner</title>
     <link href="main.css" rel="stylesheet"></head>
 
     <body>
 
         <header>
             <div>
-                <h2>News Sentiment Analysis</h2>
-                <h3>Evaluate news article with Meaning Cloud</h5>
+                <h2>Where do you want to go?</h2>
             </div>
         </header>
 
         <main>
             <section>
-                <form id="frm">
-                    <label for="url">Enter a URL here:</label>
-                    <input id="url" type="text" name="url" placeholder="http://wwww.example.com">
+                <form id="form">
+                    <label for="title">Destination</label>
+                    <input id="destination" type="text" name="destination" placeholder="Destination" required />
+                    <label for="date">Depature Date</label>
+                    <input id="Dday" type="date" name="departure_date" required />
                     <div id="errorMsg"></div>
                     <button id="submit" type="button" name="" value="submit"
-                    onclick="return Client.handleSubmit(event)">Analyse</button>
+                    onclick="return Client.handleSubmit(event)">Let's GO!!!</button>
                 </form>
             </section>
 
-            <section class="results">
-                <h2>Evaluation Results</h2>
-                <div id="loader"></div>
-                <div id="results">
-                    <div id="model"></div>
-                    <div id="score_tag"></div>
-                    <div id="agreement"></div>
-                    <div id="subjectivity"></div>
-                    <div id="confidence"></div>
-                    <div id="irony"></div>
+            <section class="nextTrip">
+                <div id="destinationWeather">
+                    <div id="locationName"></div>
+                    <div id="temp"></div>
+                    <div id="weather"></div>
+                </div>
+                <div id="destinationImage">
+                    <img id="image" src="" alt="">
+                </div>
+            </section>
+
+            <section class="futureTrip">
+                <h2>Incoming Trip</h2>
+                <div class="card">
+
+                </div>
+            </section>
+
+            <section class="pastTrip">
+                <h2>Past Trip</h2>
+                <div class="card">
+
                 </div>
             </section>
         </main>

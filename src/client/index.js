@@ -12,6 +12,9 @@ export {
     handleSubmit
 }
 
+console.log("clicked!!!");
+
+
 // Check that service workers are supported
 if (process.env.NODE_ENV === "production") {
     if ('serviceWorker' in navigator) {

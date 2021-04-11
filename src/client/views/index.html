@@ -17,10 +17,11 @@
 
         <main>
             <section>
-                <form id="frm">
-                    <label for="url">Enter your destination here:</label>
-                    <input id="destination" type="text" name="destination" placeholder="Destination">
-                    <input id="departureDate" type="date" name="departure_date">
+                <form id="form">
+                    <label for="title">Destination</label>
+                    <input id="destination" type="text" name="destination" placeholder="Destination" required />
+                    <label for="date">Depature Date</label>
+                    <input id="Dday" type="date" name="departure_date" required />
                     <div id="errorMsg"></div>
                     <button id="submit" type="button" name="" value="submit"
                     onclick="return Client.handleSubmit(event)">Let's GO!!!</button>
@@ -28,18 +29,29 @@
             </section>
 
             <section class="nextTrip">
-                <div id="destinationWeather"></div>
-                <div id="destinationImage"></div>
+                <div id="destinationWeather">
+                    <div id="locationName"></div>
+                    <div id="temp"></div>
+                    <div id="weather"></div>
+                </div>
+                <div id="destinationImage">
+                    <img id="image" src="" alt="">
+                </div>
             </section>
 
             <section class="futureTrip">
+                <h2>Incoming Trip</h2>
+                <div class="card">
 
+                </div>
             </section>
 
             <section class="pastTrip">
+                <h2>Past Trip</h2>
+                <div class="card">
 
+                </div>
             </section>
-
         </main>
         <footer>
             <p><a href="https://github.com/evawf/Evaluate-A-news-article-w-NLP">&copy GITHUB-EW</a></p> 
