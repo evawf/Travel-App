@@ -43,6 +43,14 @@ async function handleSubmit(event) {
         const data = await postData('http://localhost:8081/destination', { destination });
         console.log(data);
         // displayResults(data);
+    } else if(destination == ""){
+        errorMsg.innerHTML = "Please enter your destination!"
+        errorMsg.style.color = "red";
+        // setTimeout(init, 3000);
+    } else if(departureDate == ""){
+        errorMsg.innerHTML = "Please enter your departure date!"
+        errorMsg.style.color = "red";
+        // setTimeout(init, 3000);
     } else {
         errorMsg.innerHTML = "Please enter your destination and departure date!"
         errorMsg.style.color = "red";
