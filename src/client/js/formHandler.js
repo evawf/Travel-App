@@ -37,13 +37,15 @@ async function handleSubmit(event) {
     event.preventDefault();
     const destination = document.getElementById('destination').value;
     const departureDate = document.getElementById('departureDate').value;
+    const errorMsg = document.getElementById('errorMsg');
     if(Client.checkForInput(destination, departureDate)) {
         // showPreLoader();
         const data = await postData('http://localhost:8081/destination', { destination });
         console.log(data);
         // displayResults(data);
     } else {
-        console.log('error!!!')
+        errorMsg.innerHTML = "Please enter your destination and departure date!"
+        errorMsg.style.color = red;
         // setTimeout(init, 3000);
     }
 }
