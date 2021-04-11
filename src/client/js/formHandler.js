@@ -1,20 +1,20 @@
-// const postData = async (url = '', data = {}) => {
-//     const response = await fetch(url, {
-//         method: 'POST',
-//         credentials: 'same-origin',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-type': 'application/json'
-//         },
-//         body: JSON.stringify(data),
-//     });
-//     try {
-//         const newData = await response.json();
-//         return newData;
-//     } catch(error) {
-//         console.log('error', error);
-//     }
-// }
+const postData = async (url = '', data = {}) => {
+    const response = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    });
+    try {
+        const newData = await response.json();
+        return newData;
+    } catch(error) {
+        console.log('error', error);
+    }
+}
 
 // function init() {
 //     destination.reload(1)
@@ -34,10 +34,9 @@
 
 // Post Form Input
 async function handleSubmit(event) {
-    
     event.preventDefault();
-
     const destination = document.getElementById('destination').value;
+    console.log(destination);
     // const errorMsg = document.getElementById('errorMsg');
     if(Client.checkForInput()) {
         // showPreLoader();
@@ -45,8 +44,8 @@ async function handleSubmit(event) {
         console.log(data);
         // displayResults(data);
     } else {
-        alert('wrong date!');
-        // errorMsg.innerHTML = "Please enter a valid location/city!";
+        const errorMsg = document.getElementById('errorMsg');
+        errorMsg.innerHTML = "Please enter a valid location/city!";
         // errorMsg.style.color = "red";
         // setTimeout(init, 3000);
     }

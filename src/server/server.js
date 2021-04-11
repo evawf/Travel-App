@@ -36,7 +36,7 @@ app.post('/destination', getDestinationInfo);
 async function getDestinationInfo(req, res){
 
     const destination = req.body.destination;
-    const days = req.body.days;
+    const days = 16;
 
     //Call GeoData
     let GeoData = await getGeoData(destination);
@@ -47,9 +47,10 @@ async function getDestinationInfo(req, res){
     let WeatherData = await getWeatherData(lat, lon, days); 
     let forecast = [];
     for(let i = 0; i < 16; i++){
+        let date = WeatherData.data[i].datetime;
         let temp = WeatherData.data[i].temp;
         let weather = WeatherData.data[i].weather;
-        let weatherInfo = {temp, weather}
+        let weatherInfo = {date, temp, weather}
         forecast.push(weatherInfo);
     };
 

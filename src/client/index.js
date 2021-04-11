@@ -12,7 +12,7 @@ export {
     handleSubmit
 }
 
-console.log("clicked!!!");
+console.log("connected!!!");
 
 
 // Check that service workers are supported
