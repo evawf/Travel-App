@@ -45,7 +45,7 @@ async function handleSubmit(event) {
         // displayResults(data);
     } else {
         errorMsg.innerHTML = "Please enter your destination and departure date!"
-        errorMsg.style.color = red;
+        errorMsg.style.color = "red";
         // setTimeout(init, 3000);
     }
 }
