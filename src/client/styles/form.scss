@@ -20,6 +20,18 @@ form {
         border-radius: 16px;
     }
 
+    span::after {
+        padding-left: 5px;
+    }
+
+    input:invalid + span::after {
+        content: '✖';
+    }
+
+    input:valid + span::after {
+        content: '✓';
+    }
+
     button:hover {
         background-color: #c06014;
         color: #fff;

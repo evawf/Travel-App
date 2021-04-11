@@ -1,14 +1,10 @@
-let checkForInput = () => {
-    console.log("coucou");
-    const destination = document.getElementById('destination').value;
-    const inputDate = document.getElementById('Dday').value;
-    console.log(destination);
-    if(destination !== "" && inputDate !== ""){
+let checkForInput = (destination, departureDate) => {
+    if(destination !== "" && departureDate !== ""){
         const ToDate = new Date();
-        return (new Date(inputDate).getTime() >= ToDate.getTime());
+        return (new Date(departureDate).getTime() >= ToDate.getTime());
     } else {
-        const errorMsg = document.getElementById('errorMsg');
-        errorMsg.innerHTML = "Please enter your destination and departure date!";
+        console.log("Please enter your destination and departure date!")
+        return false;
     }
 }
 

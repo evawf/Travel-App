@@ -36,17 +36,14 @@ const postData = async (url = '', data = {}) => {
 async function handleSubmit(event) {
     event.preventDefault();
     const destination = document.getElementById('destination').value;
-    console.log(destination);
-    // const errorMsg = document.getElementById('errorMsg');
-    if(Client.checkForInput()) {
+    const departureDate = document.getElementById('departureDate').value;
+    if(Client.checkForInput(destination, departureDate)) {
         // showPreLoader();
         const data = await postData('http://localhost:8081/destination', { destination });
         console.log(data);
         // displayResults(data);
     } else {
-        const errorMsg = document.getElementById('errorMsg');
-        errorMsg.innerHTML = "Please enter a valid location/city!";
-        // errorMsg.style.color = "red";
+        console.log('error!!!')
         // setTimeout(init, 3000);
     }
 }

@@ -19,10 +19,10 @@
             <section>
                 <form id="form">
                     <label for="title">Destination</label>
-                    <input id="destination" type="text" name="destination" placeholder="Destination">
+                    <input id="destination" type="text" name="destination" placeholder="Destination" required>
+                    <span class="validity"></span>
                     <label for="date">Depature Date</label>
-                    <input id="Dday" type="date" name="departure_date">
-                    <div id="errorMsg"></div>
+                    <input id="departureDate" type="date" name="departure_date" required>
                     <button id="submit" type="button" name="" value="submit"
                     onclick="return Client.handleSubmit(event)">Let's GO!!!</button>
                 </form>
