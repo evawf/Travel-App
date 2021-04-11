@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
         <title>Travel Planner</title>
     </head>
 
@@ -22,7 +22,7 @@
                     <input id="destination" type="text" name="destination" placeholder="Destination" required>
                     <span class="validity"></span>
                     <label for="date">Depature Date</label>
-                    <input id="departureDate" type="date" name="departure_date" min="{{ now()->toDateString('Y-m-d') }}" required>
+                    <input id="departureDate" type="date" name="departure_date" required>
                     <span class="validity"></span>
                     <button id="submit" type="button" name="" value="submit"
                     onclick="return Client.handleSubmit(event)">Let's GO!!!</button>

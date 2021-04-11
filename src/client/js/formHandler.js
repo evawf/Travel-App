@@ -32,12 +32,16 @@ const postData = async (url = '', data = {}) => {
 //     resultsDiv.style.display = 'block';
 // }
 
+
+
 // Post Form Input
 async function handleSubmit(event) {
     event.preventDefault();
     const destination = document.getElementById('destination').value;
     const departureDate = document.getElementById('departureDate').value;
+    const currentDate = new Date();
     const errorMsg = document.getElementById('errorMsg');
+
     if(Client.checkForInput(destination, departureDate)) {
         // showPreLoader();
         const data = await postData('http://localhost:8081/destination', { destination });
