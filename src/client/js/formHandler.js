@@ -59,16 +59,14 @@ const displayTrips = (data) => {
     //Show recent trip input
     const recentTripInfo = data[data.length-1];
     console.log(recentTripInfo);
-    const location = document.getElementsByClassName('location');
-    console.log(location);
-    const date = document.getElementsByClassName('date');
-    // const temp = document.getElementsByClassName('temp');
-    // const weather = document.getElementsByClassName('weather');
-    location.innerHTML = recentTripInfo.destination;
-    date.innerHTML = recentTripInfo.departureDate;
-    console.log(date.innerHTML);
-
-
+    document.getElementById('location').innerHTML = "Trip to: " + recentTripInfo.destination;
+    document.getElementById('date').innerHTML = "Departure date: " + recentTripInfo.departureDate;
+    const weatherForecast = recentTripInfo.forecast;
+    for (let i = 0; i < weatherForecast.length; i++) {
+        if(weatherForecast[i].date == recentTripInfo.departureDate){
+            document.getElementById('temp').innerHTML = weatherForecast[i].temp + "&deg;C";
+        }
+    }
 
     //List past trip
 
