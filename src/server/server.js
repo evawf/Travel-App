@@ -36,6 +36,7 @@ app.post('/destination', getDestinationInfo);
 async function getDestinationInfo(req, res){
 
     const destination = req.body.destination;
+    const departureDate = req.body.departureDate;
     const days = 16;
 
     //Call GeoData
@@ -65,6 +66,7 @@ async function getDestinationInfo(req, res){
     //Save data to project endpoint
     let addData = {
         destination: destination,
+        departureDate: departureDate,
         forecast: forecast,
         photos: photos
     };

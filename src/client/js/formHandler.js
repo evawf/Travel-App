@@ -43,9 +43,9 @@ async function handleSubmit(event) {
 
     if(Client.checkForInput(destination, departureDate)) {
         // showPreLoader();
-        const data = await postData('http://localhost:8081/destination', { destination });
+        const data = await postData('http://localhost:8081/destination', { destination, departureDate });
         console.log(data);
-        // displayResults(data);
+        displayTrips(data);
     } else {
         errorMsg.innerHTML = "Please enter both destination and departure date!"
         errorMsg.style.color = "red";
@@ -55,8 +55,25 @@ async function handleSubmit(event) {
 
 
 //Display Trip Planning
-// const displayResults = (data) => {
+const displayTrips = (data) => {
+    //Show recent trip input
+    const recentTripInfo = data[data.length-1];
+    console.log(recentTripInfo);
+    const location = document.getElementsByClassName('location');
+    console.log(location);
+    const date = document.getElementsByClassName('date');
+    // const temp = document.getElementsByClassName('temp');
+    // const weather = document.getElementsByClassName('weather');
+    location.innerHTML = recentTripInfo.destination;
+    date.innerHTML = recentTripInfo.departureDate;
+    console.log(date.innerHTML);
 
-// }
+
+
+    //List past trip
+
+    //List future trip
+
+}
 
 export { handleSubmit }
