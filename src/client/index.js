@@ -14,7 +14,7 @@ export {
 
 console.log("connected!!!");
 
-//Block past dates
+//Block Past Dates
 const dateControl = document.getElementById('departureDate');
 console.log(dateControl);
 let current_datetime = new Date();

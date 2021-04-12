@@ -16,9 +16,9 @@ const postData = async (url = '', data = {}) => {
     }
 }
 
-// function init() {
-//     destination.reload(1)
-// }
+function init() {
+    destination.reload(1)
+}
 
 //PreLoader Handler
 // const preloader = document.getElementById('loader');

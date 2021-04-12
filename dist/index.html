@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2VN_u55cqY3jooCJa5weJVrHxTZJP_TM&libraries=places"></script>
+
         <title>Travel Planner</title>
     <link href="main.css" rel="stylesheet"></head>
 
@@ -59,6 +62,14 @@
             <p><a href="https://github.com/evawf/Evaluate-A-news-article-w-NLP">&copy GITHUB-EW</a></p> 
         </footer>
     <script type="text/javascript" src="main.js"></script></body>
+    <script>
+        function initialize() {
+            const input = document.getElementById('destination');
+            new google.maps.places.Autocomplete(input);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
     <!-- <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
