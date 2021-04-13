@@ -65,13 +65,48 @@ const displayTrips = (data) => {
     for (let i = 0; i < weatherForecast.length; i++) {
         if(weatherForecast[i].date == recentTripInfo.departureDate){
             document.getElementById('temp').innerHTML = weatherForecast[i].temp + "&deg;C";
+            document.getElementById('weather').innerHTML = weatherForecast[i].weather.description;
         }
     }
 
-    //List past trip
+    //SlideShow for destination photos
+    const photos = recentTripInfo.photos;
+    const slides_container = document.getElementById('slides_container');
+    for (let i = 0; i < photos.length; i++) {
+        const img_container = document.createElement('div');
+        const img = document.createElement('img');
+        img_container.classList.add('img_container');
+        img.src = photos[i];
+        img_container.appendChild(img);
+        slides_container.appendChild(img_container);
+    }
 
-    //List future trip
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
+    window.plusSlides = (n) => {
+        console.log('clicked!')
+        showSlides(slideIndex += n);
+        console.log(slideIndex);
+    }
+
+    function showSlides(n) {
+        let i;
+        const img_containers = document.getElementsByClassName('img_container');
+        if (n > img_containers.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = img_containers.length }
+        for (i = 0; i < img_containers.length; i++) {
+            img_containers[i].style.display = "none";
+        }
+        img_containers[slideIndex-1].style.display = "block";
+    }
 }
+
+
+
+//List past trip
+
+
+//List future trip
 
 export { handleSubmit }
