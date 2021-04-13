@@ -31,6 +31,15 @@ app.get('/',
     (req, res) => res.sendFile('dist/index.html', { root: __dirname })
 )
 
+let projectData = {};
+app.get('/trips', getTrips)
+async function getTrips(req, res){
+    projectData = {
+        data: data
+    }
+    res.send(projectData);
+}
+
 let data = [];
 app.post('/destination', getDestinationInfo);
 async function getDestinationInfo(req, res){

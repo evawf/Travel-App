@@ -21,27 +21,27 @@
         <main>
             <section>
                 <form id="form">
-                    <label for="title">Destination</label>
-                    <input id="destination" type="text" name="destination" placeholder="Destination" required>
-                    <span class="validity"></span>
-                    <label for="date">Depature Date</label>
-                    <input id="departureDate" type="date" name="departure_date" required>
-                    <span class="validity"></span>
-                    <button id="submit" type="button" name="" value="submit"
-                    onclick="return Client.handleSubmit(event)">Let's GO!!!</button>
+                    <div id="input">
+                        <input id="destination" type="text" name="destination" placeholder="Destination" required>
+                        <span class="validity"></span>
+                        <input id="departureDate" type="date" name="departure_date" plaseholder="" required>
+                        <span class="validity"></span>
+                        <button id="submit" type="button" name="submit" value="submit"
+                        onclick="return Client.handleSubmit(event)">GO</button>
+                    </div>
                     <div id="errorMsg"></div>
                 </form>
             </section>
-            <!-- //Recent Trip -->
-            <section class="recentTrip">Next Trip
+            <!-- //Next Trip -->
+            <section class="nextTrip">
                 <div class="tripInfo">
                     <div id="location"></div>
                     <div id="date"></div>
                     <div id="temp"></div>
                     <div id="weather"></div>
-                    <button>Save Trip</button>
+                    <button id="saveTrip">Save Trip</button>
                 </div>
-                <div>
+                <div class="slides">
                     <div id="slides_container"></div>
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -51,13 +51,13 @@
             <!-- //Future Trip -->
             <section class="futureTrip">
                 <h2>Incoming Trip</h2>
-              
+                <div class="tripCards"></div>
             </section>
 
             <!-- //Past Trip -->
             <section class="pastTrip">
                 <h2>Past Trip</h2>
-                
+                <div></div>
             </section>
         </main>
         <footer>

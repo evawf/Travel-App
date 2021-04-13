@@ -12,23 +12,37 @@ section {
     max-width: 800px;
     margin: 50px auto;
     text-align: center;
+
+}
+
+.nextTrip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.tripInfo, .slides {
+    width: 50%;
 }
 
 
-    #loader{
-        width: 250px;
-        height: 150px;
-        background: url('https://cssauthor.com/wp-content/uploads/2018/06/Copper-Loader.gif') no-repeat center;
-        z-index: 1;
-        padding-left: 100%;
-        display: none;
-        transition: opacity 2s ease-in-out;
+.slides {
+
+    #slides_container {
+   
+
+        img {
+            object-fit: cover;
+            width: 400px;
+            height: 300px;
+        }
     }
 
     .prev, .next {
         cursor: pointer;
-        // position: absolute;
-        // top: 50%;
+        position: absolute;
+        top: 65%;
         width: auto;
         padding: 16px;
         margin-top: -22px;
@@ -38,23 +52,37 @@ section {
         transition: 0.6s ease;
         border-radius: 0 3px 3px 0;
         user-select: none;
-      }
-
+    }
+    
     .next {
         right: 0;
         border-radius: 3px 0 0 3px;
     }
-
+    
     .prev:hover, .next:hover {
         background-color: rgba(0,0,0,0.8);
     }
+}
 
-    .fade {
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 1.5s;
-        animation-name: fade;
-        animation-duration: 1.5s;
-    }
+
+    // #loader{
+    //     width: 250px;
+    //     height: 150px;
+    //     background: url('https://cssauthor.com/wp-content/uploads/2018/06/Copper-Loader.gif') no-repeat center;
+    //     z-index: 1;
+    //     padding-left: 100%;
+    //     display: none;
+    //     transition: opacity 2s ease-in-out;
+    // }
+
+   
+
+    // .fade {
+    //     -webkit-animation-name: fade;
+    //     -webkit-animation-duration: 1.5s;
+    //     animation-name: fade;
+    //     animation-duration: 1.5s;
+    // }
       
 
 

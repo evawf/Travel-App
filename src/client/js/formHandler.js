@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
         method: 'POST',
@@ -59,7 +61,7 @@ const displayTrips = (data) => {
     //Show recent trip input
     const recentTripInfo = data[data.length-1];
     console.log(recentTripInfo);
-    document.getElementById('location').innerHTML = "Trip to: " + recentTripInfo.destination;
+    document.getElementById('location').innerHTML = recentTripInfo.destination;
     document.getElementById('date').innerHTML = "Departure date: " + recentTripInfo.departureDate;
     const weatherForecast = recentTripInfo.forecast;
     for (let i = 0; i < weatherForecast.length; i++) {
@@ -85,9 +87,7 @@ const displayTrips = (data) => {
     showSlides(slideIndex);
 
     window.plusSlides = (n) => {
-        console.log('clicked!')
         showSlides(slideIndex += n);
-        console.log(slideIndex);
     }
 
     function showSlides(n) {
@@ -104,9 +104,28 @@ const displayTrips = (data) => {
 
 
 
-//List past trip
-
-
 //List future trip
+document.getElementById('saveTrip').addEventListener('click', saveTrip);
+async function saveTrip() {
+    const request = await fetch('http://localhost:8081/trips');
+    try{
+        const allData = await request.json();
+        console.log(allData);
+        displayIncomingTrip(allData);
+    }
+    catch(error) {
+        console.log('error', error);
+    }
+}
+
+function displayIncomingTrip(allData) {
+    const tripCard = document.createElement('div');
+    const trip_destination = document.createElement('div');
+    const trip_date = document.createElement('div');
+    const trip_weather = document.createElement('div');
+    const trip_temp = document
+}
+
+//List past trip
 
 export { handleSubmit }
