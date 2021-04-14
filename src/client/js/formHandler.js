@@ -69,6 +69,13 @@ async function handleSubmit(event) {
 const showTrips = document.getElementById('showTrips');
 const displayTrip = (trip) => {
     console.log(trip);
+    const tripInfo = document.createElement('div');
+    const location = document.createElement('div');
+    location.classList.add('location');
+    location.innerHTML = trip.destination;
+
+    tripInfo.appendChild(location);
+    showTrips.appendChild(tripInfo);
 
 }
 
