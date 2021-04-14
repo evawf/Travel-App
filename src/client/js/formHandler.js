@@ -71,6 +71,7 @@ const showTrips = document.getElementById('showTrips');
 const displayTrip = (trip) => {
     console.log(trip);
     const tripInfo = document.createElement('div');
+    tripInfo.classList.add('tripInfo');
     const location = document.createElement('div');
     const daysToTravel = document.createElement('div');
 
@@ -91,8 +92,11 @@ const displayTrip = (trip) => {
     //16 days weather forecast 
     const forecast = trip.forecast;
     const showForecast = document.createElement('div');
+    showForecast.classList.add('showForecast');
     for ( let i = 0; i < forecast.length; i++){
         if (new Date(forecast[i].date) > new Date(day2)) {
+            const forecast_div = document.createElement('div')
+            forecast_div.classList.add('forecast_div');
             const forecast_date = document.createElement('div');
             const forecast_temp = document.createElement('div');
             const forecast_weather = document.createElement('div');
@@ -101,12 +105,13 @@ const displayTrip = (trip) => {
             forecast_temp.innerHTML = forecast[i].temp + "&deg;C";
             forecast_weather.innerHTML = forecast[i].weather.description;
 
-            showForecast.appendChild(forecast_date);
-            showForecast.appendChild(forecast_temp);
-            showForecast.appendChild(forecast_weather);
+            forecast_div.appendChild(forecast_date);
+            forecast_div.appendChild(forecast_temp);
+            forecast_div.appendChild(forecast_weather);
+            showForecast.appendChild(forecast_div);
         }
     }
-    
+
     tripInfo.appendChild(location);
     tripInfo.appendChild(daysToTravel);
     tripInfo.appendChild(showForecast);
