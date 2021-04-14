@@ -37,12 +37,11 @@ function init() {
 //Local Storage Settings
 let tripsArray = localStorage.getItem('trips')
   ? JSON.parse(localStorage.getItem('trips'))
-  : [];
+  : []
 
-localStorage.setItem('trips', JSON.stringify(tripsArray));
-const localData = JSON.parse(localStorage.getItem('trip'));
+  localStorage.setItem('trips', JSON.stringify(tripsArray))
+  const localData = JSON.parse(localStorage.getItem('trips'))
 console.log(localData);
-
 
 // Post Form Input
 async function handleSubmit(event) {
@@ -54,7 +53,9 @@ async function handleSubmit(event) {
     if(Client.checkForInput(destination, departureDate)) {
         // showPreLoader();
         const data = await postData('http://localhost:8081/destination', { destination, departureDate });
-        console.log(data);
+        tripsArray = data;
+        localStorage.setItem('trips', JSON.stringify(tripsArray));
+        displayTrip(data);
         // displayTrips(data);
     } else {
         errorMsg.innerHTML = "Please enter both destination and departure date!"
@@ -65,6 +66,12 @@ async function handleSubmit(event) {
 
 
 //Display Trip Planning
+const showTrips = document.getElementById('showTrips');
+const displayTrip = (trip) => {
+    console.log(trip);
+
+}
+
 // const displayTrips = (data) => {
 //     //Show recent trip input
 //     const recentTripInfo = data[data.length-1];
@@ -110,30 +117,13 @@ async function handleSubmit(event) {
 //     }
 // }
 
+localData.forEach((trip) => {
+    displayTrip(trip);
+})
 
-
-// //List future trip
-// document.getElementById('saveTrip').addEventListener('click', saveTrip);
-// async function saveTrip() {
-//     const request = await fetch('http://localhost:8081/trips');
-//     try{
-//         const allData = await request.json();
-//         console.log(allData);
-//         displayIncomingTrip(allData);
-//     }
-//     catch(error) {
-//         console.log('error', error);
-//     }
-// }
-
-// function displayIncomingTrip(allData) {
-//     const tripCard = document.createElement('div');
-//     const trip_destination = document.createElement('div');
-//     const trip_date = document.createElement('div');
-//     const trip_weather = document.createElement('div');
-//     const trip_temp = document
-// }
-
-//List past trip
+const deleteBtn = document.getElementById('delete');
+deleteBtn.addEventListener('click', function() {
+    localStorage.clear();
+})
 
 export { handleSubmit }
