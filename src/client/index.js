@@ -16,13 +16,10 @@ console.log("connected!!!");
 
 //Block Past Dates
 const dateControl = document.getElementById('departureDate');
-console.log(dateControl);
 let current_datetime = new Date();
-console.log(current_datetime);
 let minDateMonth = current_datetime.getMonth() + 1;
 if (minDateMonth < 10) { minDateMonth = "0"+minDateMonth; }
 let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (current_datetime.getDate() + 1);
-console.log(minDate);
 dateControl.setAttribute("min", minDate);
 
 

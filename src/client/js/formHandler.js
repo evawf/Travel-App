@@ -34,6 +34,14 @@ function init() {
 //     resultsDiv.style.display = 'block';
 // }
 
+//Local Storage Settings
+let tripsArray = localStorage.getItem('trips')
+  ? JSON.parse(localStorage.getItem('trips'))
+  : [];
+
+localStorage.setItem('trips', JSON.stringify(tripsArray));
+const localData = JSON.parse(localStorage.getItem('trip'));
+console.log(localData);
 
 
 // Post Form Input
