@@ -53,6 +53,7 @@ async function handleSubmit(event) {
     if(Client.checkForInput(destination, departureDate)) {
         // showPreLoader();
         const data = await postData('http://localhost:8081/destination', { destination, departureDate });
+        console.log(data);
         tripsArray = data;
         localStorage.setItem('trips', JSON.stringify(tripsArray));
         displayTrip(data);
@@ -71,10 +72,44 @@ const displayTrip = (trip) => {
     console.log(trip);
     const tripInfo = document.createElement('div');
     const location = document.createElement('div');
+    const daysToTravel = document.createElement('div');
+
     location.classList.add('location');
+    daysToTravel.classList.add('daysToTravel');
+
     location.innerHTML = trip.destination;
 
+    //Calculate how many days away for travel
+    const today = new Date();
+    const day1 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    const  day2 = trip.departureDate;
+    const diffInMs = new Date(day2) - new Date(day1);
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    console.log(diffInDays);
+    daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
+
+    //16 days weather forecast 
+    const forecast = trip.forecast;
+    const showForecast = document.createElement('div');
+    for ( let i = 0; i < forecast.length; i++){
+        if (new Date(forecast[i].date) > new Date(day2)) {
+            const forecast_date = document.createElement('div');
+            const forecast_temp = document.createElement('div');
+            const forecast_weather = document.createElement('div');
+
+            forecast_date.innerHTML = forecast[i].date;
+            forecast_temp.innerHTML = forecast[i].temp + "&deg;C";
+            forecast_weather.innerHTML = forecast[i].weather.description;
+
+            showForecast.appendChild(forecast_date);
+            showForecast.appendChild(forecast_temp);
+            showForecast.appendChild(forecast_weather);
+        }
+    }
+    
     tripInfo.appendChild(location);
+    tripInfo.appendChild(daysToTravel);
+    tripInfo.appendChild(showForecast);
     showTrips.appendChild(tripInfo);
 
 }
