@@ -94,6 +94,7 @@ const displayTrip = (trip) => {
 
     //16 days weather forecast 
     const forecast = trip.forecast;
+    console.log(forecast);
     const showForecast = document.createElement('div');
     showForecast.classList.add('showForecast');
     for ( let i = 0; i < forecast.length; i++){
@@ -106,7 +107,7 @@ const displayTrip = (trip) => {
             const weather_icon = document.createElement('img');
 
             forecast_date.innerHTML = forecast[i].date;
-            forecast_temp.innerHTML = forecast[i].temp + "&deg;C";
+            forecast_temp.innerHTML = forecast[i].high_temp + "&deg;C" + "/" + forecast[i].low_temp + "&deg;C" ;
             forecast_weather.innerHTML = forecast[i].weather.description;
             weather_icon.src = `./src/client/icons/${forecast[i].weather.icon}.png`;
 
