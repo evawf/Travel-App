@@ -48,6 +48,20 @@ section {
         margin: 0 20px;
     }
 }
+
+.showImage {
+    width: 100%;
+
+    .image_div {
+
+        img {
+            object-fit: cover;
+            width: 300px;
+            height: 200px;
+        }
+
+    }
+}
 // .nextTrip {
 //     display: flex;
 //     flex-direction: column;

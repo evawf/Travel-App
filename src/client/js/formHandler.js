@@ -90,7 +90,6 @@ const displayTrip = (trip) => {
     //Display destination photos
     const showImage = document.createElement('div')
     showImage.classList.add('showImage');
-    console.log(trip.photos);
     for (let i = 0; i < trip.photos.length; i++) {
         const image_div = document.createElement('div');
         image_div.classList.add('image_div');
