@@ -49,20 +49,24 @@ for (let i = 0; i < weather_btns.length; i++) {
 
 
 //Image Slide
-const next_btn = document.createElement('a');
-next_btn.classList.add('next');
-next_btn.innerHTML = "&#10095;"
-const prev_btn = document.createElement('a');
-prev_btn.classList.add('prev');
-prev_btn.innerHTML = "&#10094;"
+
 const tripInfo = document.getElementsByClassName('tripInfo');
 for ( let i = 0; i < tripInfo.length; i++) {
-    // next_btn[i].addEventListener("click", function() {
-    //     plusSlides(1)
-    // });
-    // prev_btn[i].addEventListener("click", function() {
-    //     plusSlides(-1)
-    // });
+    const next_btn = document.createElement('a');
+    next_btn.classList.add('next');
+    next_btn.innerHTML = "&#10095;"
+    const prev_btn = document.createElement('a');
+    prev_btn.classList.add('prev');
+    prev_btn.innerHTML = "&#10094;";
+
+    next_btn.addEventListener("click", function(e) {
+        console.log("clicked!")
+        plusSlides(1);
+    });
+    prev_btn.addEventListener("click", function(e) {
+        plusSlides(-1);
+    });
+
     tripInfo[i].appendChild(prev_btn);
     tripInfo[i].appendChild(next_btn);
 }
@@ -70,7 +74,7 @@ for ( let i = 0; i < tripInfo.length; i++) {
 let slideIndex = 1;
 showSlides(slideIndex);
 
-window.plusSlides = (n) => {
+function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
