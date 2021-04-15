@@ -41,8 +41,10 @@ for (let i = 0; i < weather_btns.length; i++) {
     weather_btns[i].addEventListener("click", function() {
         if (showForecasts[i].style.display === "none") {
             showForecasts[i].style.display = "block";
+            weather_btns[i].innerHTML = " Weather Forecast - ";
         } else {
             showForecasts[i].style.display = "none";
+            weather_btns[i].innerHTML = " Weather Forecast + "
         }
     });
 }

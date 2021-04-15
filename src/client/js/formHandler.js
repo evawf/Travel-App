@@ -89,7 +89,7 @@ const displayTrip = (trip) => {
 
     //Show & Hide weather forecast button
     const showWeather_btn = document.createElement('button');
-    showWeather_btn.innerHTML = "Weather Forecast";
+    showWeather_btn.innerHTML = " Weather Forecast + ";
     showWeather_btn.classList.add('weather_btn');
 
     //16 days weather forecast 
