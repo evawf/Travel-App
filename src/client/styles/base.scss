@@ -20,17 +20,24 @@ section {
     flex-direction: column;
 
     .tripInfo {
+        margin: 10px 0;
 
         .showForecast {
-            display: flex;
-            flex-direction: row;
-            
+            display: none;
+            flex-direction: column;
         }
-
     }
-
 }
 
+.forecast_div {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+
+    div {
+        margin: 0 20px;
+    }
+}
 // .nextTrip {
 //     display: flex;
 //     flex-direction: column;

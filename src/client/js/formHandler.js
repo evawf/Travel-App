@@ -87,6 +87,11 @@ const displayTrip = (trip) => {
     const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
 
+    //Show & Hide weather forecast button
+    const showWeather_btn = document.createElement('button');
+    showWeather_btn.innerHTML = "Weather Forecast";
+    showWeather_btn.classList.add('weather_btn');
+
     //16 days weather forecast 
     const forecast = trip.forecast;
     const showForecast = document.createElement('div');
@@ -112,10 +117,12 @@ const displayTrip = (trip) => {
 
     tripInfo.appendChild(location);
     tripInfo.appendChild(daysToTravel);
+    tripInfo.appendChild(showWeather_btn);
     tripInfo.appendChild(showForecast);
     showTrips.appendChild(tripInfo);
-
 }
+
+
 
 // const displayTrips = (data) => {
 //     //Show recent trip input

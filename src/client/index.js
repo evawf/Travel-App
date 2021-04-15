@@ -33,3 +33,16 @@ if (process.env.NODE_ENV === "production") {
 } else {
     console.log("This is dev mode!");
 }
+
+//Weather forecast display toggle
+const weather_btns = document.getElementsByClassName('weather_btn');
+const showForecasts = document.getElementsByClassName('showForecast');
+for (let i = 0; i < weather_btns.length; i++) {
+    weather_btns[i].addEventListener("click", function() {
+        if (showForecasts[i].style.display === "none") {
+            showForecasts[i].style.display = "block";
+        } else {
+            showForecasts[i].style.display = "none";
+        }
+    });
+}
