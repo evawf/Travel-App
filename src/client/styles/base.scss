@@ -32,10 +32,13 @@ section {
 .forecast_div {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
+    align-items: center;
 
     div {
         margin: 0 20px;
+        width: 150px;
+        align-items: center;
     }
 
     img {

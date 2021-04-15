@@ -94,7 +94,6 @@ const displayTrip = (trip) => {
 
     //16 days weather forecast 
     const forecast = trip.forecast;
-    console.log(forecast);
     const showForecast = document.createElement('div');
     showForecast.classList.add('showForecast');
     for ( let i = 0; i < forecast.length; i++){
