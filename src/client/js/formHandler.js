@@ -37,10 +37,10 @@ function init() {
 //Local Storage Settings
 let tripsArray = localStorage.getItem('trips')
   ? JSON.parse(localStorage.getItem('trips'))
-  : []
+  : [];
 
-  localStorage.setItem('trips', JSON.stringify(tripsArray))
-  const localData = JSON.parse(localStorage.getItem('trips'))
+localStorage.setItem('trips', JSON.stringify(tripsArray));
+const localData = JSON.parse(localStorage.getItem('trips'));
 console.log(localData);
 
 // Post Form Input
@@ -87,6 +87,19 @@ const displayTrip = (trip) => {
     const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
 
+    //Display destination photos
+    const showImage = document.createElement('div')
+    showImage.classList.add('showImage');
+    console.log(trip.photos);
+    for (let i = 0; i < trip.photos.length; i++) {
+        const image_div = document.createElement('div');
+        image_div.classList.add('image_div');
+        const image = document.createElement('img');
+        image.src = trip.photos[i];
+        image_div.appendChild(image);
+        showImage.appendChild(image_div);
+    }
+
     //Show & Hide weather forecast button
     const showWeather_btn = document.createElement('button');
     showWeather_btn.innerHTML = " Weather Forecast + ";
@@ -122,7 +135,7 @@ const displayTrip = (trip) => {
     tripInfo.appendChild(daysToTravel);
     tripInfo.appendChild(showWeather_btn);
     tripInfo.appendChild(showForecast);
-
+    tripInfo.appendChild(showImage);
     showTrips.appendChild(tripInfo);
 }
 
