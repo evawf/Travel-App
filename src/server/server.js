@@ -57,14 +57,17 @@ async function getDestinationInfo(req, res){
     let lat = GeoData.geonames[0].lat;
 
     //Call WeatherData
-    let WeatherData = await getWeatherData(lat, lon, days); 
+    let WeatherData = await getWeatherData(lat, lon, days);
+    console.log(WeatherData);
     let forecast = [];
     for(let i = 0; i < 16; i++){
         let date = WeatherData.data[i].datetime;
-        let temp = WeatherData.data[i].temp;
+        let high_temp = WeatherData.data[i].high_temp;
+        let low_temp = WeatherData.data[i].low_temp;
         let weather = WeatherData.data[i].weather;
-        let weatherInfo = {date, temp, weather}
+        let weatherInfo = {date, high_temp, low_temp, weather}
         forecast.push(weatherInfo);
+        console.log(forecast);
     };
 
     //Call Pixabay for Photos

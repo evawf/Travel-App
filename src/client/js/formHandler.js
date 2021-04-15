@@ -112,8 +112,8 @@ const displayTrip = (trip) => {
 
             forecast_div.appendChild(forecast_date);
             forecast_div.appendChild(forecast_temp);
-            forecast_div.appendChild(forecast_weather);
             forecast_div.appendChild(weather_icon);
+            forecast_div.appendChild(forecast_weather);
             showForecast.appendChild(forecast_div);
         }
     }
@@ -122,6 +122,7 @@ const displayTrip = (trip) => {
     tripInfo.appendChild(daysToTravel);
     tripInfo.appendChild(showWeather_btn);
     tripInfo.appendChild(showForecast);
+
     showTrips.appendChild(tripInfo);
 }
 
