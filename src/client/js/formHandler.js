@@ -54,7 +54,7 @@ async function handleSubmit(event) {
         // showPreLoader();
         const data = await postData('http://localhost:8081/destination', { destination, departureDate });
         console.log(data);
-        tripsArray = data;
+        tripsArray.push(data);
         localStorage.setItem('trips', JSON.stringify(tripsArray));
         displayTrip(data);
         // displayTrips(data);
@@ -69,7 +69,6 @@ async function handleSubmit(event) {
 //Display Trip Planning
 const showTrips = document.getElementById('showTrips');
 const displayTrip = (trip) => {
-    console.log(trip);
     const tripInfo = document.createElement('div');
     tripInfo.classList.add('tripInfo');
     const location = document.createElement('div');
@@ -86,7 +85,6 @@ const displayTrip = (trip) => {
     const  departure_date = trip.departureDate;
     const diffInMs = new Date(departure_date) - new Date(current_date);
     const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-    console.log(diffInDays);
     daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
 
     //16 days weather forecast 
@@ -164,8 +162,8 @@ const displayTrip = (trip) => {
 //     }
 // }
 
-localData.forEach((trip) => {
-    displayTrip(trip);
+localData.forEach((data) => {
+    displayTrip(data);
 })
 
 const deleteBtn = document.getElementById('delete');

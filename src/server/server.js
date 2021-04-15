@@ -84,7 +84,7 @@ async function getDestinationInfo(req, res){
     };
     data.push(addData);
     console.log(data);
-    res.send(data);
+    res.send(addData);
 }
 
 //Fetch Weatherbit API data
