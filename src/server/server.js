@@ -45,11 +45,14 @@ app.post('/destination', getDestinationInfo);
 async function getDestinationInfo(req, res){
 
     const destination = req.body.destination;
+    console.log(destination);
     const departureDate = req.body.departureDate;
     const days = 16;
 
     //Call GeoData
     let GeoData = await getGeoData(destination);
+    console.log(GeoData);
+    
     let lon = GeoData.geonames[0].lng;
     let lat = GeoData.geonames[0].lat;
 
