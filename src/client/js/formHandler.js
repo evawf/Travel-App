@@ -82,9 +82,9 @@ const displayTrip = (trip) => {
 
     //Calculate how many days away for travel
     const today = new Date();
-    const day1 = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    const  day2 = trip.departureDate;
-    const diffInMs = new Date(day2) - new Date(day1);
+    const current_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    const  departure_date = trip.departureDate;
+    const diffInMs = new Date(departure_date) - new Date(current_date);
     const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     console.log(diffInDays);
     daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
@@ -94,7 +94,7 @@ const displayTrip = (trip) => {
     const showForecast = document.createElement('div');
     showForecast.classList.add('showForecast');
     for ( let i = 0; i < forecast.length; i++){
-        if (new Date(forecast[i].date) > new Date(day2)) {
+        if (new Date(forecast[i].date) > new Date(departure_date)) {
             const forecast_div = document.createElement('div')
             forecast_div.classList.add('forecast_div');
             const forecast_date = document.createElement('div');
