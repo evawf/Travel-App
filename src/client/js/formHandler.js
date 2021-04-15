@@ -103,14 +103,17 @@ const displayTrip = (trip) => {
             const forecast_date = document.createElement('div');
             const forecast_temp = document.createElement('div');
             const forecast_weather = document.createElement('div');
+            const weather_icon = document.createElement('img');
 
             forecast_date.innerHTML = forecast[i].date;
             forecast_temp.innerHTML = forecast[i].temp + "&deg;C";
             forecast_weather.innerHTML = forecast[i].weather.description;
+            weather_icon.src = `./src/client/icons/${forecast[i].weather.icon}.png`;
 
             forecast_div.appendChild(forecast_date);
             forecast_div.appendChild(forecast_temp);
             forecast_div.appendChild(forecast_weather);
+            forecast_div.appendChild(weather_icon);
             showForecast.appendChild(forecast_div);
         }
     }
