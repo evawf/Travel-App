@@ -15,22 +15,32 @@ form {
     }
 
     input, #submit {
-        border: 2px solid #1A385A;
+        border: 0px solid #1A385A;
         height: 80px;
         width: 100%;
         margin: 20px 20px;
         text-align: center;
         border-radius: 40px;
         font-size: xx-large;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        color:#1A385A;
+    }
+
+    #submit {
+        background-color: #E8AA9B;
+        text-align: center;
+    }
+
+    #submit:hover {
+        background-color: #E46F44;
     }
 
     span::after {
         padding-left: 2px;
     }
 
-    // input:invalid + span::after {
-    //     content: '✖';
-    //     color: red;
+    // input:invalid {
+    //     border: 5px solid red;
     // }
 
     input:valid {

@@ -9,7 +9,7 @@ body {
 
 main {
     flex: 2;
-    
+    background-color:  #1A385A;
 }
 
 section {
@@ -44,6 +44,7 @@ section {
         width: 720px;
         font-size: xx-large;
         background-color: #DCD5DC;
+        border-radius: 15px;
 
         .showForecast {
             display: none;
