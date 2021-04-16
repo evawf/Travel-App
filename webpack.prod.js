@@ -26,11 +26,15 @@ module.exports = {
                 use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jp?g|png|gif|svg)$/i,
                 loader: 'file-loader',
                 options: {
                     name: '[path][name].[ext]',
-                },
+                    context: path.resolve(__dirname, "src/"),
+                    outputPath: 'dist/',
+                    publicPath: '../',
+                    useRelativePaths: true
+                }
             }
         ]
     },

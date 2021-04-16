@@ -12,6 +12,9 @@ export {
     handleSubmit
 }
 
+//Add Background to header
+document.getElementById('header').style.background = "url('.src/client/media/cover1.jpg') cover fixed no-repeat";
+
 //Block Past Dates
 const dateControl = document.getElementById('departureDate');
 let current_datetime = new Date();

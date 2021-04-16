@@ -2,14 +2,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 10px;
-    box-shadow: 0 4px 8px 0 rgba(197, 38, 38, 0.2);
-    border-radius: 50px;
+    margin: 10px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
 }
 
 main {
     flex: 2;
-    background-color:  #1A385A;
+    // background-color:  #1A385A;
 }
 
 section {
