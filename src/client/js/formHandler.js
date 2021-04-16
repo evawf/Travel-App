@@ -45,6 +45,7 @@ console.log(localData);
 
 // Post Form Input
 async function handleSubmit(event) {
+    console.log("clicked!")
     event.preventDefault();
     const destination = document.getElementById('destination').value;
     const departureDate = document.getElementById('departureDate').value;

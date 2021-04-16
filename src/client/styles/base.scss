@@ -2,10 +2,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(197, 38, 38, 0.2);
+    border-radius: 50px;
 }
 
 main {
     flex: 2;
+    
 }
 
 section {
@@ -18,15 +22,38 @@ section {
 #showTrips {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #1A385A;
+
+    div, button {
+        margin: 10px 0;
+    }
+
+    button {
+        color: #1A385A;
+        font-size: xx-large;
+        background-color: #DCD5DC;
+        border: none;
+    }
 
     .tripInfo {
         margin: 10px 0;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        width: 720px;
+        font-size: xx-large;
+        background-color: #DCD5DC;
 
         .showForecast {
             display: none;
             flex-direction: column;
         }
     }
+
+    .tripInfo:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
 }
 
 .forecast_div {
@@ -37,7 +64,7 @@ section {
 
     div {
         font-size: small;
-        margin: 0 10px;
+        margin: 0 30px;
         width: 100px;
         align-items: center;
     }
@@ -51,12 +78,14 @@ section {
 
 .showImage {
     width: 100%;
+    text-align: center;
 
     .image_div {
+        width: 100%;
 
         img {
             object-fit: cover;
-            width: 500px;
+            width: 480px;
             height: 350px;
         }
 
