@@ -18,9 +18,6 @@ if (minDateMonth < 10) { minDateMonth = "0"+minDateMonth; }
 let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (current_datetime.getDate() + 1);
 dateControl.setAttribute("min", minDate);
 
-
-// localStorage.setItem('trips', JSON.stringify(tripsArray));
-
 const deleteBtn = document.getElementById('delete');
 deleteBtn.addEventListener('click', deleteAllTrips );
 
@@ -36,57 +33,3 @@ if (process.env.NODE_ENV === "production") {
 } else {
     console.log("This is dev mode!");
 }
-
-
-//Image Slide
-
-// const tripInfo = document.getElementsByClassName('tripInfo');
-// for ( let i = 0; i < tripInfo.length; i++) {
-//     const id = 'tipInfo-'+i;
-//     tripInfo[i].id = id;
-//     const next_btn = document.createElement('a');
-//     next_btn.classList.add('next');
-//     next_btn.innerHTML = "&#10095;"
-//     const prev_btn = document.createElement('a');
-//     prev_btn.classList.add('prev');
-//     prev_btn.innerHTML = "&#10094;";
-
-//     next_btn.addEventListener("click", function(e) {
-//         console.log("clicked!")
-//         plusSlides(id,1);
-//     });
-//     prev_btn.addEventListener("click", function(e) {
-//         plusSlides(id,-1);
-//     });
-
-//     tripInfo[i].appendChild(prev_btn);
-//     tripInfo[i].appendChild(next_btn);
-//     //slideshowsActive[id]=1;
-//     initSlides(id);
-// }
-
-// let slideIndex = 1;
-// showSlides(slideIndex);
-// let slideshows = {};
-// function initSlides(id) {
-//     slideshows[id] = {
-//         index: 1
-//     }
-// }
-// function plusSlides(id, n) {
-
-//     showSlides(id, slideIndex += n);
-// }
-
-// function showSlides(id, n) {
-//     let i;
-//     const image_div = document.getElementById(id).getElementsByClassName('image_div');
-//     if (n > image_div.length) { slideIndex = 1 }
-//     if (n < 1) { slideIndex = image_div.length }
-//     for (i = 0; i < image_div.length; i++) {
-//         image_div[i].style.display = "none";
-//     }
-//     if( image_div[slideIndex-1] ){
-//         image_div[slideIndex-1].style.display = "block";
-//     }
-// }

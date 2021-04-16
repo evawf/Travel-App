@@ -11,8 +11,7 @@
     <link href="main.css" rel="stylesheet"></head>
 
     <body>
-
-        <header>
+        <header id="header">
             <div>
                 <h2>Trip Planner</h2>
             </div>
@@ -32,21 +31,14 @@
                     <div id="errorMsg"></div>
                 </form>
             </section>
+            <div id="menu">
+                <button id="futureTrip">Future Trip</button>
+                <button id="passedTrip">Passed Trip</button>
+                <button id="delete">Clear Trip</button>
+            </div>
+
             <!-- //Next Trip -->
-            <section id="showTrips">
-                <button id="delete">delete</button>
-            </section>
-
-            <!-- //Future Trip -->
-            <section class="futureTrip">
-                <h2>Incoming Trip</h2>
-                <div class="tripCards"></div>
-            </section>
-
-            <!-- //Past Trip -->
-            <section class="pastTrip">
-                <h2>Past Trip</h2>
-                <div></div>
+            <section id="showTrips">                
             </section>
         </main>
         <footer>
