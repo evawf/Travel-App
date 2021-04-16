@@ -1,6 +1,6 @@
 import { handleSubmit } from './js/formHandler';
 import { checkForInput } from './js/inputChecker';
-import { displayTrip } from './js/displayTrip';
+import { displayTrips } from './js/displayTrips';
 
 import './styles/resets.scss';
 import './styles/base.scss';
@@ -10,7 +10,8 @@ import './styles/header.scss';
 
 export {
     checkForInput,
-    handleSubmit
+    handleSubmit,
+    displayTrips
 }
 
 //Add Background to header
@@ -36,15 +37,7 @@ if (process.env.NODE_ENV === "production") {
     console.log("This is dev mode!");
 }
 
-//Weather forecast display toggle
-const weather_btns = document.getElementsByClassName('weather_btn');
-const showForecasts = document.getElementsByClassName('showForecast');
-for (let i = 0; i < weather_btns.length; i++) {
-    weather_btns[i].addEventListener("click", function() {
-        console.log(`clicked! : ${showForecasts[i].style.display}`)
-        showForecasts[i].classList.toggle("collapsed")
-    });
-}
+displayTrips();
 
 
 //Image Slide

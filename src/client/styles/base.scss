@@ -50,6 +50,7 @@ section {
             height: 60px;
             margin: 20px 20px;
             border-radius: 30px;
+            font-size: x-large;
         }
     }
 
@@ -106,6 +107,10 @@ section {
 .showImage {
     width: 100%;
     text-align: center;
+
+    a {
+        margin: 0 150px;
+    }
 
     .image_div {
         width: 100%;
