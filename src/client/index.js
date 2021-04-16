@@ -1,5 +1,6 @@
 import { handleSubmit } from './js/formHandler';
 import { checkForInput } from './js/inputChecker';
+import { displayTrip } from './js/displayTrip';
 
 import './styles/resets.scss';
 import './styles/base.scss';
@@ -40,55 +41,61 @@ const weather_btns = document.getElementsByClassName('weather_btn');
 const showForecasts = document.getElementsByClassName('showForecast');
 for (let i = 0; i < weather_btns.length; i++) {
     weather_btns[i].addEventListener("click", function() {
-        console.log("clicked!")
-        if (showForecasts[i].style.display === "none") {
-            showForecasts[i].style.display = "block";
-            weather_btns[i].innerHTML = " Weather Forecast - ";
-        } else {
-            showForecasts[i].style.display = "none";
-            weather_btns[i].innerHTML = " Weather Forecast + "
-        }
+        console.log(`clicked! : ${showForecasts[i].style.display}`)
+        showForecasts[i].classList.toggle("collapsed")
     });
 }
 
 
 //Image Slide
 
-const tripInfo = document.getElementsByClassName('tripInfo');
-for ( let i = 0; i < tripInfo.length; i++) {
-    const next_btn = document.createElement('a');
-    next_btn.classList.add('next');
-    next_btn.innerHTML = "&#10095;"
-    const prev_btn = document.createElement('a');
-    prev_btn.classList.add('prev');
-    prev_btn.innerHTML = "&#10094;";
+// const tripInfo = document.getElementsByClassName('tripInfo');
+// for ( let i = 0; i < tripInfo.length; i++) {
+//     const id = 'tipInfo-'+i;
+//     tripInfo[i].id = id;
+//     const next_btn = document.createElement('a');
+//     next_btn.classList.add('next');
+//     next_btn.innerHTML = "&#10095;"
+//     const prev_btn = document.createElement('a');
+//     prev_btn.classList.add('prev');
+//     prev_btn.innerHTML = "&#10094;";
 
-    next_btn.addEventListener("click", function(e) {
-        console.log("clicked!")
-        plusSlides(1);
-    });
-    prev_btn.addEventListener("click", function(e) {
-        plusSlides(-1);
-    });
+//     next_btn.addEventListener("click", function(e) {
+//         console.log("clicked!")
+//         plusSlides(id,1);
+//     });
+//     prev_btn.addEventListener("click", function(e) {
+//         plusSlides(id,-1);
+//     });
 
-    tripInfo[i].appendChild(prev_btn);
-    tripInfo[i].appendChild(next_btn);
-}
+//     tripInfo[i].appendChild(prev_btn);
+//     tripInfo[i].appendChild(next_btn);
+//     //slideshowsActive[id]=1;
+//     initSlides(id);
+// }
 
-let slideIndex = 1;
-showSlides(slideIndex);
+// let slideIndex = 1;
+// showSlides(slideIndex);
+// let slideshows = {};
+// function initSlides(id) {
+//     slideshows[id] = {
+//         index: 1
+//     }
+// }
+// function plusSlides(id, n) {
 
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
+//     showSlides(id, slideIndex += n);
+// }
 
-function showSlides(n) {
-    let i;
-    const image_div = document.getElementsByClassName('image_div');
-    if (n > image_div.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = image_div.length }
-    for (i = 0; i < image_div.length; i++) {
-        image_div[i].style.display = "none";
-    }
-    image_div[slideIndex-1].style.display = "block";
-}
+// function showSlides(id, n) {
+//     let i;
+//     const image_div = document.getElementById(id).getElementsByClassName('image_div');
+//     if (n > image_div.length) { slideIndex = 1 }
+//     if (n < 1) { slideIndex = image_div.length }
+//     for (i = 0; i < image_div.length; i++) {
+//         image_div[i].style.display = "none";
+//     }
+//     if( image_div[slideIndex-1] ){
+//         image_div[slideIndex-1].style.display = "block";
+//     }
+// }

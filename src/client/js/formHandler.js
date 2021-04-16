@@ -34,16 +34,16 @@ function init() {
 //     resultsDiv.style.display = 'block';
 // }
 
-//Local Storage Settings
-let tripsArray = localStorage.getItem('trips')
-  ? JSON.parse(localStorage.getItem('trips'))
-  : [];
+// //Add Local Storage
+// let tripsArray = localStorage.getItem('trips')
+//   ? JSON.parse(localStorage.getItem('trips'))
+//   : [];
 
-localStorage.setItem('trips', JSON.stringify(tripsArray));
-const localData = JSON.parse(localStorage.getItem('trips'));
-console.log(localData);
+// localStorage.setItem('trips', JSON.stringify(tripsArray));
+// const localData = JSON.parse(localStorage.getItem('trips'));
+// console.log(localData);
 
-// Post Form Input
+//Post Form Input
 async function handleSubmit(event) {
     console.log("clicked!")
     event.preventDefault();
@@ -67,132 +67,101 @@ async function handleSubmit(event) {
 }
 
 
-//Display Trip Planning
-const showTrips = document.getElementById('showTrips');
-const displayTrip = (trip) => {
-    const tripInfo = document.createElement('div');
-    tripInfo.classList.add('tripInfo');
-    const location = document.createElement('div');
-    const daysToTravel = document.createElement('div');
+// //Display Trip Planning
+// let id = 0;
+// const showTrips = document.getElementById('showTrips');
+// const displayTrip = (trip) => {
+//     id += 1;
+//     const tripInfo = document.createElement('div');
+//     tripInfo.classList.add('tripInfo');
+//     tripInfo.id = (`tripInfo_${id}`);
+//     console.log(tripInfo.id);
+//     const location = document.createElement('div');
+//     const daysToTravel = document.createElement('div');
 
-    location.classList.add('location');
-    daysToTravel.classList.add('daysToTravel');
+//     location.classList.add('location');
+//     daysToTravel.classList.add('daysToTravel');
 
-    location.innerHTML = trip.destination;
+//     location.innerHTML = trip.destination;
 
-    //Calculate how many days away for travel
-    const today = new Date();
-    const current_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    const  departure_date = trip.departureDate;
-    const diffInMs = new Date(departure_date) - new Date(current_date);
-    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-    daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
+//     //Calculate how many days away for travel
+//     const today = new Date();
+//     const current_date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+//     const  departure_date = trip.departureDate;
+//     const diffInMs = new Date(departure_date) - new Date(current_date);
+//     const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+//     daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
 
-    //Display destination photos
-    const showImage = document.createElement('div')
-    showImage.classList.add('showImage');
-    for (let i = 0; i < trip.photos.length; i++) {
-        const image_div = document.createElement('div');
-        image_div.classList.add('image_div');
-        const image = document.createElement('img');
-        image.src = trip.photos[i];
-        image_div.appendChild(image);
-        showImage.appendChild(image_div);
-    }
+//     //Display destination photos
+//     const showImage = document.createElement('div')
+//     showImage.classList.add('showImage');
+//     const next_btn = document.createElement('a');
+//     next_btn.classList.add('next');
+//     next_btn.innerHTML = "&#10095;"
+//     const prev_btn = document.createElement('a');
+//     prev_btn.classList.add('prev');
+//     prev_btn.innerHTML = "&#10094;";
 
-    //Show & Hide weather forecast button
-    const showWeather_btn = document.createElement('button');
-    showWeather_btn.innerHTML = " Weather Forecast + ";
-    showWeather_btn.classList.add('weather_btn');
+//     showImage.appendChild(prev_btn);
+//     showImage.appendChild(next_btn);
 
-    //16 days weather forecast 
-    const forecast = trip.forecast;
-    const showForecast = document.createElement('div');
-    showForecast.classList.add('showForecast');
-    for ( let i = 0; i < forecast.length; i++){
-        if (new Date(forecast[i].date) > new Date(departure_date)) {
-            const forecast_div = document.createElement('div')
-            forecast_div.classList.add('forecast_div');
-            const forecast_date = document.createElement('div');
-            const forecast_temp = document.createElement('div');
-            const forecast_weather = document.createElement('div');
-            const weather_icon = document.createElement('img');
+//     for (let i = 0; i < trip.photos.length; i++) {
+//         const image_div = document.createElement('div');
+//         image_div.classList.add('image_div');
+//         const image = document.createElement('img');
+//         image.src = trip.photos[i];
+//         image_div.appendChild(image);
+//         showImage.appendChild(image_div);
+//     }
 
-            forecast_date.innerHTML = forecast[i].date;
-            forecast_temp.innerHTML = forecast[i].high_temp + "&deg;C" + "/" + forecast[i].low_temp + "&deg;C" ;
-            forecast_weather.innerHTML = forecast[i].weather.description;
-            weather_icon.src = `./src/client/icons/${forecast[i].weather.icon}.png`;
+//     //Show & Hide weather forecast button
+//     const showWeather_btn = document.createElement('button');
+//     showWeather_btn.innerHTML = "Weather Forecast";
+//     showWeather_btn.classList.add('weather_btn');
 
-            forecast_div.appendChild(forecast_date);
-            forecast_div.appendChild(forecast_temp);
-            forecast_div.appendChild(weather_icon);
-            forecast_div.appendChild(forecast_weather);
-            showForecast.appendChild(forecast_div);
-        }
-    }
+//     //16 days weather forecast 
+//     const forecast = trip.forecast;
+//     const showForecast = document.createElement('div');
+//     showForecast.classList.add('showForecast');
+//     showForecast.classList.add('collapsed');
+//     showForecast.appendChild(showWeather_btn);
+//     for ( let i = 0; i < forecast.length; i++){
+//         if (new Date(forecast[i].date) > new Date(departure_date)) {
+//             const forecast_div = document.createElement('div')
+//             forecast_div.classList.add('forecast_div');
+//             const forecast_date = document.createElement('div');
+//             const forecast_temp = document.createElement('div');
+//             const forecast_weather = document.createElement('div');
+//             const weather_icon = document.createElement('img');
 
-    tripInfo.appendChild(location);
-    tripInfo.appendChild(daysToTravel);
-    tripInfo.appendChild(showWeather_btn);
-    tripInfo.appendChild(showForecast);
-    tripInfo.appendChild(showImage);
-    showTrips.appendChild(tripInfo);
-}
+//             forecast_date.innerHTML = forecast[i].date;
+//             forecast_temp.innerHTML = forecast[i].high_temp + "&deg;C" + "/" + forecast[i].low_temp + "&deg;C" ;
+//             forecast_weather.innerHTML = forecast[i].weather.description;
+//             weather_icon.src = `./src/client/icons/${forecast[i].weather.icon}.png`;
 
-
-
-// const displayTrips = (data) => {
-//     //Show recent trip input
-//     const recentTripInfo = data[data.length-1];
-//     console.log(recentTripInfo);
-//     document.getElementById('location').innerHTML = recentTripInfo.destination;
-//     document.getElementById('date').innerHTML = "Departure date: " + recentTripInfo.departureDate;
-//     const weatherForecast = recentTripInfo.forecast;
-//     for (let i = 0; i < weatherForecast.length; i++) {
-//         if(weatherForecast[i].date == recentTripInfo.departureDate){
-//             document.getElementById('temp').innerHTML = weatherForecast[i].temp + "&deg;C";
-//             document.getElementById('weather').innerHTML = weatherForecast[i].weather.description;
+//             forecast_div.appendChild(forecast_date);
+//             forecast_div.appendChild(forecast_temp);
+//             forecast_div.appendChild(weather_icon);
+//             forecast_div.appendChild(forecast_weather);
+//             showForecast.appendChild(forecast_div);
 //         }
 //     }
 
-//     //SlideShow for destination photos
-//     const photos = recentTripInfo.photos;
-//     const slides_container = document.getElementById('slides_container');
-//     for (let i = 0; i < photos.length; i++) {
-//         const img_container = document.createElement('div');
-//         const img = document.createElement('img');
-//         img_container.classList.add('img_container');
-//         img.src = photos[i];
-//         img_container.appendChild(img);
-//         slides_container.appendChild(img_container);
-//     }
-
-//     let slideIndex = 1;
-//     showSlides(slideIndex);
-
-//     window.plusSlides = (n) => {
-//         showSlides(slideIndex += n);
-//     }
-
-//     function showSlides(n) {
-//         let i;
-//         const img_containers = document.getElementsByClassName('img_container');
-//         if (n > img_containers.length) { slideIndex = 1 }
-//         if (n < 1) { slideIndex = img_containers.length }
-//         for (i = 0; i < img_containers.length; i++) {
-//             img_containers[i].style.display = "none";
-//         }
-//         img_containers[slideIndex-1].style.display = "block";
-//     }
+//     tripInfo.appendChild(location);
+//     tripInfo.appendChild(daysToTravel);
+//     // tripInfo.appendChild(showWeather_btn);
+//     tripInfo.appendChild(showForecast);
+//     tripInfo.appendChild(showImage);
+//     showTrips.appendChild(tripInfo);
 // }
 
-localData.forEach((data) => {
-    displayTrip(data);
-})
+// localData.forEach((data) => {
+//     displayTrip(data);
+// })
 
-const deleteBtn = document.getElementById('delete');
-deleteBtn.addEventListener('click', function() {
-    localStorage.clear();
-})
+// const deleteBtn = document.getElementById('delete');
+// deleteBtn.addEventListener('click', function() {
+//     localStorage.clear();
+// })
 
 export { handleSubmit }
