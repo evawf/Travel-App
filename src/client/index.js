@@ -1,7 +1,5 @@
-import { handleSubmit } from './js/formHandler';
-import { checkForInput } from './js/inputChecker';
-import { displayTrips } from './js/displayTrips';
-
+import { handleSubmit } from './js/formHandler.js';
+import { initializeAndDisplayTrips, deleteAllTrips } from './js/tripManagement.js'
 import './styles/resets.scss';
 import './styles/base.scss';
 import './styles/footer.scss';
@@ -9,13 +7,8 @@ import './styles/form.scss';
 import './styles/header.scss';
 
 export {
-    checkForInput,
-    handleSubmit,
-    displayTrips
+     handleSubmit,
 }
-
-//Add Background to header
-document.getElementById('header').style.background = "url('.src/client/media/cover1.jpg') cover fixed no-repeat";
 
 //Block Past Dates
 const dateControl = document.getElementById('departureDate');
@@ -25,6 +18,13 @@ if (minDateMonth < 10) { minDateMonth = "0"+minDateMonth; }
 let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (current_datetime.getDate() + 1);
 dateControl.setAttribute("min", minDate);
 
+
+// localStorage.setItem('trips', JSON.stringify(tripsArray));
+
+const deleteBtn = document.getElementById('delete');
+deleteBtn.addEventListener('click', deleteAllTrips );
+
+initializeAndDisplayTrips();
 
 // Check that service workers are supported
 if (process.env.NODE_ENV === "production") {
@@ -36,8 +36,6 @@ if (process.env.NODE_ENV === "production") {
 } else {
     console.log("This is dev mode!");
 }
-
-displayTrips();
 
 
 //Image Slide
