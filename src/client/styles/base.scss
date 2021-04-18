@@ -3,15 +3,13 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 10px 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 20px;
-
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
 }
 
 main {
     flex: 2;
     text-align: center;
-    // background-color:  #1A385A;
 }
 
 section {
@@ -27,8 +25,6 @@ section {
     align-items: center;
     color: #1A385A;
 
-
-
     div, button {
         margin: 10px 0;
     }
@@ -42,6 +38,7 @@ section {
 
     .tripInfo {
         margin: 10px 0;
+        padding: 20px 0;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         transition: 0.3s;
         width: 720px;
@@ -62,6 +59,16 @@ section {
             &.collapsed .weather_btn::after{
                 content: " +";
             }
+
+            .weather_btn {
+                border-bottom: 1px solid gray;
+                font-size: x-large;
+                width: 50%;
+            }
+
+            .weather_btn:hover {
+                color: #E46F44;
+            }
         }
     }
 
@@ -69,6 +76,8 @@ section {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
       }
 }
+
+
 
 .forecast_div {
     display: flex;
@@ -84,8 +93,8 @@ section {
     }
 
     img {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         margin: 0 20px;
     }
 }
@@ -97,6 +106,7 @@ section {
     a {
         width: 100%;
         padding: 0 150px;
+        transition: 0.6s ease-in-out;        
     }
 
     .image_div {
@@ -106,6 +116,7 @@ section {
             object-fit: cover;
             width: 480px;
             height: 350px;
+            border-radius: 10px;
         }
 
     }
@@ -113,14 +124,19 @@ section {
 
 #deleteTrips {
     border: 0px solid #1A385A;
+    width: 300px;
     height: 80px;
     margin: 20px 20px;
     text-align: center;
     border-radius: 40px;
     font-size: x-large;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    color:#1A385A;
-    background: rgba(128, 128, 128, 0.075);
+    background: #e8aa9b42;
+    color: #1A385A;
+}
+
+#deleteTrips:hover {
+    background-color: #E46F44;
 }
 // .nextTrip {
 //     display: flex;
