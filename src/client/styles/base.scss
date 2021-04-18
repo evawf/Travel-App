@@ -4,11 +4,13 @@ body {
     min-height: 100vh;
     margin: 10px 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 20px;
 
 }
 
 main {
     flex: 2;
+    text-align: center;
     // background-color:  #1A385A;
 }
 
@@ -16,7 +18,6 @@ section {
     max-width: 800px;
     margin: 50px auto;
     text-align: center;
-
 }
 
 #showTrips {
@@ -25,6 +26,8 @@ section {
     justify-content: center;
     align-items: center;
     color: #1A385A;
+
+
 
     div, button {
         margin: 10px 0;
@@ -35,23 +38,6 @@ section {
         font-size: xx-large;
         background-color: #DCD5DC;
         border: none;
-    }
-
-    #menu {
-        margin: 0 30px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        button {
-            background-color: #e8aa9b7e;
-            height: 60px;
-            margin: 20px 20px;
-            border-radius: 30px;
-            font-size: x-large;
-        }
     }
 
     .tripInfo {
@@ -109,7 +95,8 @@ section {
     text-align: center;
 
     a {
-        margin: 0 150px;
+        width: 100%;
+        padding: 0 150px;
     }
 
     .image_div {
@@ -122,6 +109,18 @@ section {
         }
 
     }
+}
+
+#deleteTrips {
+    border: 0px solid #1A385A;
+    height: 80px;
+    margin: 20px 20px;
+    text-align: center;
+    border-radius: 40px;
+    font-size: x-large;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    color:#1A385A;
+    background: rgba(128, 128, 128, 0.075);
 }
 // .nextTrip {
 //     display: flex;
@@ -141,17 +140,7 @@ section {
 // }
 
 
-// .slides {
 
-//     #slides_container {
-   
-
-//         img {
-//             object-fit: cover;
-//             width: 400px;
-//             height: 300px;
-//         }
-//     }
 
 //     .prev, .next {
 //         cursor: pointer;
@@ -188,8 +177,6 @@ section {
         display: none;
         transition: opacity 2s ease-in-out;
     }
-
-   
 
     // .fade {
     //     -webkit-animation-name: fade;
