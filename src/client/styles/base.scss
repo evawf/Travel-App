@@ -5,6 +5,7 @@ body {
     margin: 10px 10px;
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
+    font-family: 'Abril Fatface';
 }
 
 main {
@@ -13,7 +14,6 @@ main {
 }
 
 section {
-    // max-width: 800px;
     margin: 50px auto;
     text-align: center;
 }
@@ -22,7 +22,6 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     color: #1A385A;
 
     div, button {
@@ -84,15 +83,16 @@ section {
     align-items: center;
 
     div {
-        font-size: small;
-        margin: 0 30px;
-        width: 100px;
+        font-family: Arial;
+        font-size: medium;
+        margin: 0 20px;
+        width: 130px;
         align-items: center;
     }
 
     img {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         margin: 0 20px;
     }
 }

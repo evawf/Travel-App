@@ -25,28 +25,28 @@ form {
             color:#1A385A;
         }
 
-    }
+        input:valid {
+            border: 5px solid green;
+        }
 
-    #submit {
-        background-color: #e8aa9b42;
-        text-align: center;
-    }
+        #submit {
+            background-color: #e8aa9b42;
+            text-align: center;        
+        }
 
-    #submit:hover {
-        background-color: #E46F44;
-    }
+        #submit:hover {
+            background-color: #E46F44;
+        }
 
-    span::after {
-        padding-left: 2px;
-    }
-
-    input:valid {
-        border: 5px solid green;
-    }
-
-    button:hover {
-        background-color: #c06014;
-        color: #fff;
+        [type="date"] {
+            background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+        }
+        [type="date"]::-webkit-inner-spin-button {
+            display: none;
+        }
+        [type="date"]::-webkit-calendar-picker-indicator {
+            opacity: 0;
+        }
     }
 }
 

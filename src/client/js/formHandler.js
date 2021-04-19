@@ -1,7 +1,6 @@
 import { checkForInput } from './inputChecker';
 import { addNewTrip } from './tripManagement';
 
-
 //Internal functions
 const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
