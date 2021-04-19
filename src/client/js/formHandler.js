@@ -33,6 +33,7 @@ function hidePreLoader(){
 async function handleSubmit(event) {
     console.log("clicked!")
     event.preventDefault();
+    console.log("hey!!");
     const destination = document.getElementById('destination').value;
     const departureDate = document.getElementById('departureDate').value;
     const errorMsg = document.getElementById('errorMsg');

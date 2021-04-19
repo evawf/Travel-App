@@ -1,4 +1,3 @@
-
 let tripsData = {
     trips: [],
     maxId: 0,
@@ -11,7 +10,6 @@ const initializeAndDisplayTrips = () => {
     if( localStorageTrips ) {
         tripsData = JSON.parse(localStorage.getItem('trips'))
     }
-
     //update UI
     updateTripUI();
 };
@@ -23,6 +21,7 @@ const addNewTrip = (trip) => {
     trip['activeImage'] = 0;
     tripsData.trips.push(trip);
     localStorage.setItem('trips', JSON.stringify(tripsData));
+
     updateTripUI();
 };
 
@@ -39,7 +38,7 @@ const updateTripUI = () => {
     showTrips.innerHTML = '';
     tripsData.trips.forEach((trip) => {
         addTripUI(trip);
-    })
+    });
 };
 
 const addTripUI = (trip) => {
@@ -145,7 +144,31 @@ const addTripUI = (trip) => {
     showImage.appendChild(next_btn);
 
     showTrips.appendChild(tripInfo);
+
+
+    //Delete Single Trip
+    const deleteSingleTrip = document.createElement('a');
+    deleteSingleTrip.classList.add('deleteTrip');
+    deleteSingleTrip.innerHTML = "Remove ";
+
+    const deleteIcon = document.createElement('i');
+    deleteIcon.classList.add('fa');
+    deleteIcon.classList.add('fa-trash');
+    deleteSingleTrip.appendChild(deleteIcon);
+    tripInfo.appendChild(deleteSingleTrip);
+    deleteSingleTrip.addEventListener('click', function(){
+        if (tripsData.trips.length > 1) {
+            tripsData.trips.splice(id, 1);
+            tripsData.maxId --;
+            localStorage.setItem('trips', JSON.stringify(tripsData));
+            updateTripUI();
+        } else {
+            deleteAllTrips();
+        }
+    });
 }
+
+
 
 export {
     initializeAndDisplayTrips,

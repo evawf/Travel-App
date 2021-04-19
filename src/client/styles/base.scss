@@ -62,12 +62,21 @@ section {
             .weather_btn {
                 border-bottom: 1px solid gray;
                 font-size: x-large;
+                font-family: Abril Fatface;
                 width: 50%;
             }
 
             .weather_btn:hover {
                 color: #E46F44;
             }
+        }
+
+        .deleteTrip {
+            font-size: x-large;
+        }
+
+        .deleteTrip:hover {
+            color: #E46F44;
         }
     }
 

@@ -19,7 +19,7 @@ let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (curre
 dateControl.setAttribute("min", minDate);
 
 const deleteBtn = document.getElementById('deleteTrips');
-deleteBtn.addEventListener('click', deleteAllTrips );
+deleteBtn.addEventListener('click', deleteAllTrips);
 
 initializeAndDisplayTrips();
 
