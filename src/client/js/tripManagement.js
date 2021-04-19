@@ -168,8 +168,6 @@ const addTripUI = (trip) => {
     });
 }
 
-
-
 export {
     initializeAndDisplayTrips,
     addNewTrip,
