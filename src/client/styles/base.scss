@@ -13,7 +13,7 @@ main {
 }
 
 section {
-    max-width: 800px;
+    // max-width: 800px;
     margin: 50px auto;
     text-align: center;
 }
@@ -77,8 +77,6 @@ section {
       }
 }
 
-
-
 .forecast_div {
     display: flex;
     flex-direction: row;
@@ -118,7 +116,6 @@ section {
             height: 350px;
             border-radius: 10px;
         }
-
     }
 }
 
@@ -138,68 +135,25 @@ section {
 #deleteTrips:hover {
     background-color: #E46F44;
 }
-// .nextTrip {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-//     transition: 0.3s;
-// }
 
-// // .nextTrip:hover {
-// //     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-// // }
+#loader{
+    width: 250px;
+    height: 150px;
+    background: url('https://cssauthor.com/wp-content/uploads/2018/06/Copper-Loader.gif') no-repeat center;
+    z-index: 1;
+    padding-left: 100%;
+    display: none;
+    transition: opacity 2s ease-in-out;
+}
 
-// .tripInfo, .slides {
-//     width: 50%;
-// }
+@media only screen and (min-width: 768px) {
+    #showTrips {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
 
-
-
-
-//     .prev, .next {
-//         cursor: pointer;
-//         position: absolute;
-//         top: 65%;
-//         width: auto;
-//         padding: 16px;
-//         margin-top: -22px;
-//         color: white;
-//         font-weight: bold;
-//         font-size: 18px;
-//         transition: 0.6s ease;
-//         border-radius: 0 3px 3px 0;
-//         user-select: none;
-//     }
-    
-//     .next {
-//         right: 0;
-//         border-radius: 3px 0 0 3px;
-//     }
-    
-//     .prev:hover, .next:hover {
-//         background-color: rgba(0,0,0,0.8);
-//     }
-// }
-
-
-    #loader{
-        width: 250px;
-        height: 150px;
-        background: url('https://cssauthor.com/wp-content/uploads/2018/06/Copper-Loader.gif') no-repeat center;
-        z-index: 1;
-        padding-left: 100%;
-        display: none;
-        transition: opacity 2s ease-in-out;
+        .tripInfo {
+            margin: 20px 20px;
+        }
     }
-
-    // .fade {
-    //     -webkit-animation-name: fade;
-    //     -webkit-animation-duration: 1.5s;
-    //     animation-name: fade;
-    //     animation-duration: 1.5s;
-    // }
-      
-
-
+}
