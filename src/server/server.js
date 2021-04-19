@@ -29,7 +29,7 @@ app.listen(port, function () {
 
 app.get('/', 
     (req, res) => res.sendFile('dist/index.html', { root: __dirname })
-)
+);
 
 let projectData = {};
 app.get('/trips', getTrips)

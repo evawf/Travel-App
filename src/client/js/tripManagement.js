@@ -83,7 +83,7 @@ const addTripUI = (trip) => {
             forecast_date.innerHTML = forecast[i].date;
             forecast_temp.innerHTML = forecast[i].high_temp + "&deg;C" + "/" + forecast[i].low_temp + "&deg;C" ;
             forecast_weather.innerHTML = forecast[i].weather.description;
-            weather_icon.src = `./src/client/icons/${forecast[i].weather.icon}.png`;
+            weather_icon.src = `/src/client/icons/${forecast[i].weather.icon}.png`;
 
             forecast_div.appendChild(forecast_date);
             forecast_div.appendChild(forecast_temp);
