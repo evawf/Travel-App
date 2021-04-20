@@ -153,9 +153,10 @@ section {
 }
 
 #loader {
-    width: 250px;
+    width: 150px;
     height: 150px;
-    background: url('https://flevix.com/wp-content/uploads/2019/07/Ball-Drop-Preloader-1-1.gif') no-repeat center;
+    background: url('https://acegif.com/wp-content/uploads/loading-25.gif') no-repeat center;
+    background-size: contain;
     z-index: 1;
     padding-left: 100%;
     display: none;
