@@ -40,25 +40,20 @@ async function getTrips(req, res){
     res.send(projectData);
 }
 
-let data = [];
+// let data = [];
 app.post('/destination', getDestinationInfo);
 async function getDestinationInfo(req, res){
-
     const destination = req.body.destination;
-    console.log(destination);
     const departureDate = req.body.departureDate;
     const days = 16;
 
     //Call GeoData
-    let GeoData = await getGeoData(destination);
-    console.log(GeoData);
-    
+    let GeoData = await getGeoData(destination);    
     let lon = GeoData.geonames[0].lng;
     let lat = GeoData.geonames[0].lat;
 
     //Call WeatherData
     let WeatherData = await getWeatherData(lat, lon, days);
-    console.log(WeatherData);
     let forecast = [];
     for(let i = 0; i < 16; i++){
         let date = WeatherData.data[i].datetime;
@@ -85,8 +80,8 @@ async function getDestinationInfo(req, res){
         forecast: forecast,
         photos: photos
     };
-    data.push(addData);
-    console.log(data);
+    // data.push(addData);
+    // console.log(data);
     res.send(addData);
 }
 

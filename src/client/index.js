@@ -1,5 +1,5 @@
 import { handleSubmit } from './js/formHandler.js';
-import { initializeAndDisplayTrips, deleteAllTrips } from './js/tripManagement.js'
+import { initializeAndDisplayTrips, deleteAllTrips } from './js/tripManagement.js';
 
 import './styles/resets.scss';
 import './styles/base.scss';
@@ -44,7 +44,6 @@ import '../client/icons/t03d.png';
 import '../client/icons/t04d.png';
 import '../client/icons/t05d.png';
 import '../client/icons/u00d.png';
-
 
 export {
      handleSubmit,

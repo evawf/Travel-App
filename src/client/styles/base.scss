@@ -145,6 +145,7 @@ section {
     font-size: x-large;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     color:#1A385A;
+    display: none;
 }
 
 #deleteTrips:hover {
@@ -154,7 +155,7 @@ section {
 #loader{
     width: 250px;
     height: 150px;
-    background: url('https://cssauthor.com/wp-content/uploads/2018/06/Copper-Loader.gif') no-repeat center;
+    background: url('https://cssauthor.com/wp-content/uploads/2018/06/Copper-Loader.gif') no-repeat center 0.5;
     z-index: 1;
     padding-left: 100%;
     display: none;
