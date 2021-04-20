@@ -14,10 +14,10 @@ Following the course instructions, I developed this travel app to pull data from
 - Coding strategy 
 
 ## APIs Used
-- Weatherbit API [here](https://www.weatherbit.io/)
-- Geonames API [here](https://www.geonames.org/)
-- Pixabay API [here](https://pixabay.com/)
-- Google Maps JavaScript API [here](https://developers.google.com/maps/documentation/javascript/overview)
+- Weatherbit API: click [here](https://www.weatherbit.io/) for more details
+- Geonames API: click [here](https://www.geonames.org/) to view API info
+- Pixabay API: click [here](https://pixabay.com/api/docs/) find the API documentation
+- Google Maps JavaScript API: for more info [here](https://developers.google.com/maps/documentation/javascript/overview)
 
 ## Installation
 - Download/clone this repo 
