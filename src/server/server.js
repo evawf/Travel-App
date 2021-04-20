@@ -48,7 +48,8 @@ async function getDestinationInfo(req, res){
     const days = 16;
 
     //Call GeoData
-    let GeoData = await getGeoData(destination);    
+    let GeoData = await getGeoData(destination);
+    console.log(GeoData);  
     let lon = GeoData.geonames[0].lng;
     let lat = GeoData.geonames[0].lat;
 
@@ -64,15 +65,20 @@ async function getDestinationInfo(req, res){
         forecast.push(weatherInfo);
         console.log(forecast);
     };
-
+  
     //Call Pixabay for Photos
-    let PixabayData = await getPixaData(destination);
+    let countryName = GeoData.geonames[0].countryName;
+    PixabayData = await getPixaData(destination);
+    if(PixabayData.total == 0) {
+        PixabayData = await getPixaData(countryName);
+    } 
+    console.log(PixabayData);
     let photos = [];
     for(let i = 0; i < 20; i++){
         let photoUrl = PixabayData.hits[i].webformatURL;
         photos.push(photoUrl);
     };
-
+   
     //Save data to project endpoint
     let addData = {
         destination: destination,
@@ -82,6 +88,7 @@ async function getDestinationInfo(req, res){
     };
     // data.push(addData);
     // console.log(data);
+    console.log(addData);
     res.send(addData);
 }
 
