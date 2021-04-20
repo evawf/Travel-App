@@ -149,8 +149,6 @@ const addTripUI = (trip) => {
     //Delete Single Trip
     const deleteSingleTrip = document.createElement('a');
     deleteSingleTrip.classList.add('deleteTrip');
-    deleteSingleTrip.id = `trip_${id}`;
-    console.log(deleteSingleTrip.id);
     deleteSingleTrip.innerHTML = "Remove ";
 
     const deleteIcon = document.createElement('i');
@@ -159,9 +157,10 @@ const addTripUI = (trip) => {
     deleteSingleTrip.appendChild(deleteIcon);
     tripInfo.appendChild(deleteSingleTrip);
     deleteSingleTrip.addEventListener('click', function(){
+        console.log(id);
         if (tripsData.trips.length > 1) {
-            tripsData.trips.splice(id, 1);
             tripsData.maxId --;
+            tripsData.trips.splice(id, 1);
             localStorage.setItem('trips', JSON.stringify(tripsData));
             updateTripUI();
         } else {
