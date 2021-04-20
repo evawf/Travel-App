@@ -1,5 +1,4 @@
 form {
-    margin: 0px 30px;
     text-align: center;
     font-size: x-large;
 
@@ -27,11 +26,6 @@ form {
 
         input:valid {
             border: 5px solid green;
-        }
-
-        #submit {
-            background-color: #e8aa9b42;
-            text-align: center;        
         }
 
         #submit:hover {
