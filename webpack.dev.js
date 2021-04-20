@@ -26,18 +26,14 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader' ]
+            },
+            {
+                test: /\.(jp?g|png|gif|svg)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]',
+                }
             }
-            // {
-            //     test: /\.(jp?g|png|gif|svg)$/i,
-            //     loader: 'file-loader',
-            //     options: {
-            //         name: '[path][name].[ext]',
-            //         context: path.resolve(__dirname, "src/"),
-            //         outputPath: 'dist/',
-            //         publicPath: '../',
-            //         useRelativePaths: true
-            //     }
-            // }
         ]
     },
     plugins: [

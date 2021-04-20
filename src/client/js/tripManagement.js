@@ -4,12 +4,14 @@ let tripsData = {
 };
 
 const initializeAndDisplayTrips = () => {
+
     //get trips from local storage
     let localStorageTrips = localStorage.getItem('trips')
 
     if( localStorageTrips ) {
         tripsData = JSON.parse(localStorage.getItem('trips'))
     }
+
     //update UI
     updateTripUI();
 };
@@ -29,6 +31,7 @@ const deleteAllTrips = () => {
     tripsData.trips = [];
     tripsData.maxId = 0;
     localStorage.setItem('trips', JSON.stringify(tripsData));
+    document.getElementById('deleteTrips').style.display = "none";
     updateTripUI();
 };
 
@@ -145,7 +148,6 @@ const addTripUI = (trip) => {
 
     showTrips.appendChild(tripInfo);
 
-
     //Delete Single Trip
     const deleteSingleTrip = document.createElement('a');
     deleteSingleTrip.classList.add('deleteTrip');
@@ -166,6 +168,10 @@ const addTripUI = (trip) => {
             deleteAllTrips();
         }
     });
+
+    if (tripsData.trips.length > 1) {
+        document.getElementById('deleteTrips').style.display = "block";
+    }
 }
 
 export {
