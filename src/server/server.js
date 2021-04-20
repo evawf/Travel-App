@@ -86,8 +86,6 @@ async function getDestinationInfo(req, res){
         forecast: forecast,
         photos: photos
     };
-    // data.push(addData);
-    // console.log(data);
     console.log(addData);
     res.send(addData);
 }

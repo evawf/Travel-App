@@ -24,6 +24,3 @@ Following the course instructions, I developed this travel app to pull data from
 - run `<npm install>` in the terminal to install all required dependencies
 - Input your API keys in .env
 - run `<npm run start>`
-
-## Deployed in Heroku
-Click here to view app. 
