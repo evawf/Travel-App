@@ -58,9 +58,9 @@ if (minDateMonth < 10) { minDateMonth = "0"+minDateMonth; }
 let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (current_datetime.getDate() + 1);
 dateControl.setAttribute("min", minDate);
 
+//Delete All Trips
 const deleteBtn = document.getElementById('deleteTrips');
 deleteBtn.addEventListener('click', deleteAllTrips);
-
 initializeAndDisplayTrips();
 
 // Check that service workers are supported
