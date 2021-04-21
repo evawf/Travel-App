@@ -20,6 +20,16 @@ Following the course instructions, I developed this travel app to pull data from
 
 ## Installation
 - Download/clone this repo 
-- run `<npm install>` in the terminal to install all required dependencies
-- Input your API keys in .env
-- run `<npm run start>`
+- Run `<npm install>` in the terminal to install all required dependencies
+- Add .env file and input the api keys:
+GEONAMES_API_KEY=
+WEATHERBIT_API_KEY=
+PIXABAY_API_KEY=
+NODE_ENV = "production"
+
+- `npm run build-prod`
+- Run `<npm run start>` to start the app at port 8081
+
+## Extend Options / Ways to Stand Out
+- I used Local Storage to save the data.
+- Pull the forecast for multiple days.
