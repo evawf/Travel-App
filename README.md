@@ -22,11 +22,12 @@ Following the course instructions, I developed this travel app to pull data from
 - Download/clone this repo 
 - Run `<npm install>` in the terminal to install all required dependencies
 - Add .env file and input the api keys:
+```
 GEONAMES_API_KEY=
 WEATHERBIT_API_KEY=
 PIXABAY_API_KEY=
 NODE_ENV = "production"
-
+```
 - `npm run build-prod`
 - Run `<npm run start>` to start the app at port 8081
 
