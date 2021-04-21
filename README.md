@@ -29,7 +29,7 @@ PIXABAY_API_KEY=
 NODE_ENV = "production"
 ```
 - `npm run build-prod`
-- Run `<npm run start>` to start the app at port 8081
+- Run `npm run start` to start the app at port 8081
 
 ## Extend Options / Ways to Stand Out
 - I used Local Storage to save the data.
