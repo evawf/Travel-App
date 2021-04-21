@@ -20,7 +20,7 @@ Following the course instructions, I developed this travel app to pull data from
 
 ## Installation
 - Download/clone this repo 
-- Run `<npm install>` in the terminal to install all required dependencies
+- Run `npm install` in the terminal to install all required dependencies
 - Add .env file and input the api keys:
 ```
 GEONAMES_API_KEY=
