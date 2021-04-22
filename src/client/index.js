@@ -1,5 +1,6 @@
 import { handleSubmit } from './js/formHandler.js';
 import { initializeAndDisplayTrips, deleteAllTrips } from './js/tripManagement.js';
+import { departureDate } from './js/inputChecker';
 
 import './styles/resets.scss';
 import './styles/base.scss';

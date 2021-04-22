@@ -1,10 +1,8 @@
+@import '~js-datepicker/src/datepicker';
+
 form {
     text-align: center;
     font-size: x-large;
-
-    label {
-        color: rgb(12, 11, 11);
-    }
 
     #input {
         display: flex;
