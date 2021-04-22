@@ -44,9 +44,9 @@ const updateTripUI = () => {
 
 const addTripUI = (trip) => {
     let id = trip.id;
-    const tripInfo = document.createElement('div');
-    tripInfo.classList.add('tripInfo');
-    tripInfo.id = (`tripInfo_${id}`);
+    const tripCard = document.createElement('div');
+    tripCard.classList.add('tripCard');
+    tripCard.id = (`tripCard_${id}`);
     const location = document.createElement('div');
     const daysToTravel = document.createElement('div');
     location.classList.add('location');
@@ -94,9 +94,9 @@ const addTripUI = (trip) => {
         }
     }
 
-    tripInfo.appendChild(location);
-    tripInfo.appendChild(daysToTravel);
-    tripInfo.appendChild(showForecast);
+    tripCard.appendChild(location);
+    tripCard.appendChild(daysToTravel);
+    tripCard.appendChild(showForecast);
     
     //Weather forecast display toggle
     showWeather_btn.addEventListener("click", function() {
@@ -115,7 +115,7 @@ const addTripUI = (trip) => {
     image_div.appendChild(image);
        
     showImage.appendChild(image_div);
-    tripInfo.appendChild(showImage);
+    tripCard.appendChild(showImage);
     const next_btn = document.createElement('a');
     next_btn.classList.add('next');
     next_btn.innerHTML = "&#10095;"
@@ -144,7 +144,7 @@ const addTripUI = (trip) => {
     showImage.appendChild(prev_btn);
     showImage.appendChild(next_btn);
 
-    showTrips.appendChild(tripInfo);
+    showTrips.appendChild(tripCard);
 
     //Delete Single Trip
     const deleteSingleTrip = document.createElement('a');
@@ -155,7 +155,7 @@ const addTripUI = (trip) => {
     deleteIcon.classList.add('fa');
     deleteIcon.classList.add('fa-trash');
     deleteSingleTrip.appendChild(deleteIcon);
-    tripInfo.appendChild(deleteSingleTrip);
+    tripCard.appendChild(deleteSingleTrip);
     deleteSingleTrip.addEventListener('click', function(){
         console.log(id);
         if (tripsData.trips.length > 1) {
