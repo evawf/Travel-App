@@ -1,19 +1,14 @@
 import datepicker from 'js-datepicker'
 
-//Block Past Dates
-// const dateControl = document.getElementById('departureDate');
-// let current_datetime = new Date();
-// let minDateMonth = current_datetime.getMonth() + 1;
-// if (minDateMonth < 10) { minDateMonth = "0"+minDateMonth; }
-// let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (current_datetime.getDate() + 1);
-// dateControl.setAttribute("min", minDate);
-
+//JS Datepicker settings
 const getToday = () => new Date();
 const departureDate = datepicker('#departureDate', {
     minDate: getToday(),
     datePicked: getToday(),
-    position: 'bl'
+    position: 'tr'
 });
+
+departureDate.calendarContainer.style.setProperty('font-size', '2rem')
 
 let checkForInput = (destination, departureDate) => {
     if(destination !== "" && departureDate !== ""){

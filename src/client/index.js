@@ -51,12 +51,12 @@ export {
 }
 
 //Block Past Dates
-const dateControl = document.getElementById('departureDate');
-let current_datetime = new Date();
-let minDateMonth = current_datetime.getMonth() + 1;
-if (minDateMonth < 10) { minDateMonth = "0"+minDateMonth; }
-let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (current_datetime.getDate() + 1);
-dateControl.setAttribute("min", minDate);
+// const dateControl = document.getElementById('departureDate');
+// let current_datetime = new Date();
+// let minDateMonth = current_datetime.getMonth() + 1;
+// if (minDateMonth < 10) { minDateMonth = "0"+minDateMonth; }
+// let minDate = current_datetime.getFullYear() + "-" + minDateMonth + "-" + (current_datetime.getDate() + 1);
+// dateControl.setAttribute("min", minDate);
 
 //Delete All Trips
 const deleteBtn = document.getElementById('deleteTrips');
