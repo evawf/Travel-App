@@ -157,12 +157,15 @@ const addTripUI = (trip) => {
     deleteSingleTrip.appendChild(deleteIcon);
     tripCard.appendChild(deleteSingleTrip);
     deleteSingleTrip.addEventListener('click', function(){
-        console.log(id);
-        if (tripsData.trips.length > 1) {
-            tripsData.maxId --;
-            tripsData.trips.splice(id, 1);
-            localStorage.setItem('trips', JSON.stringify(tripsData));
-            updateTripUI();
+        let n = tripsData.trips.findIndex( trip => trip.id == id)
+        if ( tripsData.trips.length > 1 ) {
+            for ( let i = 0; i < tripsData.trips.length; i++) {
+                if ( id == tripsData.trips[i].id){
+                    tripsData.trips.splice(n, 1);
+                    localStorage.setItem('trips', JSON.stringify(tripsData));
+                    updateTripUI();
+                }
+            }
         } else {
             deleteAllTrips();
         }
