@@ -20,9 +20,9 @@
     "form-data": "^2.3.3",
     "node-fetch": "^2.6.1",
     "sass": "^1.32.11",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
     "dotenv": "^8.2.0",
-    "dotenv-webpack": "^7.0.2",
+    "dotenv-webpack": "^7.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
