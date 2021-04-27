@@ -40,7 +40,7 @@ async function getTrips(req, res){
     res.send(projectData);
 }
 
-// let data = [];
+let data = [];
 app.post('/destination', getDestinationInfo);
 async function getDestinationInfo(req, res){
     const destination = req.body.destination;
@@ -84,6 +84,7 @@ async function getDestinationInfo(req, res){
         forecast: forecast,
         photos: photos
     };
+    data.push(addData);
     res.send(addData);
 }
 
