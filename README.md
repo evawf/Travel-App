@@ -31,6 +31,9 @@ NODE_ENV = "production"
 - `npm run build-prod`
 - Run `npm run start` to start the app at port 8081
 
-## Extend Options / Ways to Stand Out
+## Extend Options
 - I used Local Storage to save the data.
 - Pull the forecast for multiple days.
+
+## Deploy in Heroku
+Check [here](https://travel-app.herokuapp.com/) to try this app. 
