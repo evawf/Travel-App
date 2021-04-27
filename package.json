@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "eva",
   "license": "ISC",
-  "description": "",
+  "description": "This my last project from Udacity Front-End Web Developer Course. This project requires minimumly to build out a travel app to obtains a desired trip destination & date from the user, and displays weather and an image of the destination using information obtained from external APIs.",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -47,5 +47,13 @@
   },
   "engines": {
     "node": ">=10.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evawf/Travel-App.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evawf/Travel-App/issues"
+  },
+  "homepage": "https://github.com/evawf/Travel-App#readme"
 }
