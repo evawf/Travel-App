@@ -5,7 +5,7 @@ const getToday = () => new Date();
 const departureDate = datepicker('#departureDate', {
     minDate: getToday(),
     datePicked: getToday(),
-    position: 'tr'
+    position: 'bl'
 });
 
 departureDate.calendarContainer.style.setProperty('font-size', '2rem')
