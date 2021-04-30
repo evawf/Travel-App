@@ -10,6 +10,8 @@ module.exports = {
     devtool: 'source-map',
     stats: 'verbose',
     devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
         port: 8080
     },
     output: {
