@@ -61,7 +61,7 @@ const addTripUI = (trip) => {
     const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
     daysToTravel.innerHTML = "Your trip starts in: " + diffInDays + " days";
 
-    if (diffInDays == NaN){
+    if (diffInDays == "NaN"){
         daysToTravel.innerHTML = "Your trip starts in: " + today + " days";
     }
 
