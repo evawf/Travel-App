@@ -39,7 +39,7 @@ async function handleSubmit(event) {
 
     if(checkForInput(destination, departureDate)) {
         showPreLoader();
-        const tripData = await postData('/destination', { destination, departureDate });
+        const tripData = await postData('http://localhost:8081/destination', { destination, departureDate });
         hidePreLoader();
         addNewTrip(tripData);
     } else {

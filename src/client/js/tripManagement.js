@@ -33,15 +33,24 @@ const deleteAllTrips = () => {
     updateTripUI();
 };
 
-const showTrips = document.getElementById('showTrips');
+//Function to Sort trips by departure date
+function sortTrips(a, b){
+    let dateA = new Date(a.departureDate).getTime();
+    let dateB = new Date(b.departureDate).getTime();
+    return dateA > dateB ? 1 : -1;
+};
 
+//Display sorted trips
+const showTrips = document.getElementById('showTrips');
 const updateTripUI = () => {
     showTrips.innerHTML = '';
-    tripsData.trips.forEach((trip) => {
+    let sortedTrips = tripsData.trips.sort(sortTrips);
+    sortedTrips.forEach((trip) => {
         addTripUI(trip);
     });
 };
 
+//Add Trip
 const addTripUI = (trip) => {
     let id = trip.id;
     const tripCard = document.createElement('div');
@@ -147,7 +156,6 @@ const addTripUI = (trip) => {
 
     showImage.appendChild(prev_btn);
     showImage.appendChild(next_btn);
-
     showTrips.appendChild(tripCard);
 
     //Delete Single Trip
