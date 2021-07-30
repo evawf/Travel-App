@@ -1,7 +1,7 @@
 # Travel-App
 This the final project for Udacity Front-End Web Developer Course. This project requires minimumly to build out a travel app to obtains a desired trip destination & date from the user, and displays weather and an image of the destination using information obtained from external APIs.
 
-Following the course instruction, I developed this travel app to pull data from APIs and then to display the destination, how many days away for departure, weather forecast for multiple days(within 16 days from today), and photos for the destination with the user's input of __Destination__ and __Departure Date__. Users can add multiple trips, remove individual trips or remove all trips in one click. 
+I developed this travel app to pull data from APIs and then to display the destination, how many days away for departure, weather forecast for multiple days(within 16 days from today), and photos for the destination with the user's input of __Destination__ and __Departure Date__. Users can add multiple trips, remove individual trips or remove all trips in one click. 
 
 ## Key skills to practice
 - HTML, CSS and Javascript
